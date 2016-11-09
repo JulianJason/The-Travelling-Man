@@ -2,4 +2,9 @@
     <string name="app_name">The Travelling Man</string>
     <string name="title_activity_layout">layoutActivity</string>
     <string name="title_activity_itinerary">itineraryActivity</string>
+    <string name="title_activity_test_welcome_page">TestWelcomePage</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main_Jason">MainActivityJason</string>
 </resources>
