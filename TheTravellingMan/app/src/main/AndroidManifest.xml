@@ -15,6 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".layoutActivity"
+            android:label="@string/title_activity_layout"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".itineraryActivity"
+            android:label="@string/title_activity_itinerary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

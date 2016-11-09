@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">The Travelling Man</string>
+    <string name="title_activity_layout">layoutActivity</string>
+    <string name="title_activity_itinerary">itineraryActivity</string>
 </resources>
