@@ -1,98 +1,98 @@
 package com.lejit.thetravellingman;
-import java.util.*;
+import java.util.ArrayList;
 
-/**
- * Created by MY LENOVO on 10/11/2016.
- */
 public class DestinationMatrix {
-    public static final HashMap<String,Integer> destination_matrix=new HashMap<String, Integer>();
+    public static final ArrayList<String> destination_matrix = new ArrayList<>();
+    final static int TotNum = destination_matrix.size();
+    public static final double[][][] costArray = new double[3][TotNum][TotNum];
+    public static final double[][][] timeArray = new double[3][TotNum][TotNum];
+
     static {
-        destination_matrix.put("Marina Bay Sands",0);
-        destination_matrix.put("Singapore Flyer",1);
-        destination_matrix.put("VivoCity",2);
-        destination_matrix.put("Resorts World Sentosa",3);
-        destination_matrix.put("Buddha Tooth Relic Temple",4);
-        destination_matrix.put("The Singapore Zoo",5);
+        destination_matrix.add("Marina Bay Sands");
+        destination_matrix.add("Singapore Flyer");
+        destination_matrix.add("VivoCity");
+        destination_matrix.add("Resorts World Sentosa");
+        destination_matrix.add("Buddha Tooth Relic Temple");
+        destination_matrix.add("The Singapore Zoo");
     }
-    final static int TotNum=destination_matrix.size();
-    public static final double [][][] costArray=new double [3][TotNum][TotNum];
+
     static {
-        costArray[1][0][1]=0.83;
-        costArray[1][0][2]=1.18;
-        costArray[1][0][3]=4.03;
-        costArray[1][0][4]=0.88;
-        costArray[1][0][5]=1.96;
+        costArray[1][0][1] = 0.83;
+        costArray[1][0][2] = 1.18;
+        costArray[1][0][3] = 4.03;
+        costArray[1][0][4] = 0.88;
+        costArray[1][0][5] = 1.96;
 
-        costArray[1][1][1]=0.83;
-        costArray[1][1][2]=1.26;
-        costArray[1][1][3]=4.03;
-        costArray[1][1][4]=0.98;
-        costArray[1][1][4]=1.89;
+        costArray[1][1][1] = 0.83;
+        costArray[1][1][2] = 1.26;
+        costArray[1][1][3] = 4.03;
+        costArray[1][1][4] = 0.98;
+        costArray[1][1][4] = 1.89;
 
 
-        costArray[1][2][1]=1.18;
-        costArray[1][2][2]=1.26;
-        costArray[1][2][3]=2.00;
-        costArray[1][2][4]=0.98;
-        costArray[1][2][5]=1.99;
+        costArray[1][2][1] = 1.18;
+        costArray[1][2][2] = 1.26;
+        costArray[1][2][3] = 2.00;
+        costArray[1][2][4] = 0.98;
+        costArray[1][2][5] = 1.99;
 
-        costArray[1][3][1]=1.18;
-        costArray[1][3][2]=1.16;
-        costArray[1][3][3]=0.00;
-        costArray[1][3][4]=0.98;
-        costArray[1][3][5]=1.99;
+        costArray[1][3][1] = 1.18;
+        costArray[1][3][2] = 1.16;
+        costArray[1][3][3] = 0.00;
+        costArray[1][3][4] = 0.98;
+        costArray[1][3][5] = 1.99;
 
-        costArray[1][4][1]=0.88;
-        costArray[1][4][2]=0.98;
-        costArray[1][4][3]=0.98;
-        costArray[1][4][4]=3.98;
-        costArray[1][4][5]=1.91;
+        costArray[1][4][1] = 0.88;
+        costArray[1][4][2] = 0.98;
+        costArray[1][4][3] = 0.98;
+        costArray[1][4][4] = 3.98;
+        costArray[1][4][5] = 1.91;
 
-        costArray[1][5][1]=1.88;
-        costArray[1][5][2]=1.96;
-        costArray[1][5][3]=2.11;
-        costArray[1][5][4]=4.99;
-        costArray[1][5][5]=1.99;
+        costArray[1][5][1] = 1.88;
+        costArray[1][5][2] = 1.96;
+        costArray[1][5][3] = 2.11;
+        costArray[1][5][4] = 4.99;
+        costArray[1][5][5] = 1.99;
 
         //taxi
-        costArray[2][0][1]=10.77;
-        costArray[2][0][2]=10.00;
-        costArray[2][0][3]=14.10;
-        costArray[2][0][4]=9.15;
-        costArray[2][0][5]=24.85;
+        costArray[2][0][1] = 10.77;
+        costArray[2][0][2] = 10.00;
+        costArray[2][0][3] = 14.10;
+        costArray[2][0][4] = 9.15;
+        costArray[2][0][5] = 24.85;
 
-        costArray[2][1][1]=10.77;
-        costArray[2][1][2]=10.82;
-        costArray[2][1][3]=11.38;
-        costArray[2][1][4]=9.70;
-        costArray[2][1][5]=23.75;
+        costArray[2][1][1] = 10.77;
+        costArray[2][1][2] = 10.82;
+        costArray[2][1][3] = 11.38;
+        costArray[2][1][4] = 9.70;
+        costArray[2][1][5] = 23.75;
 
-        costArray[2][2][1]=15.45;
-        costArray[2][2][2]=12.18;
-        costArray[2][2][3]=9.15;
-        costArray[2][2][4]=9.97;
-        costArray[2][2][5]=27.60;
+        costArray[2][2][1] = 15.45;
+        costArray[2][2][2] = 12.18;
+        costArray[2][2][3] = 9.15;
+        costArray[2][2][4] = 9.97;
+        costArray[2][2][5] = 27.60;
 
-        costArray[2][3][1]=13.82;
-        costArray[2][3][2]=14.92;
-        costArray[2][3][3]=9.15;
-        costArray[2][3][4]=11.90;
-        costArray[2][3][5]=33.62;
+        costArray[2][3][1] = 13.82;
+        costArray[2][3][2] = 14.92;
+        costArray[2][3][3] = 9.15;
+        costArray[2][3][4] = 11.90;
+        costArray[2][3][5] = 33.62;
 
-        costArray[2][4][1]=9.15;
-        costArray[2][4][2]=9.70;
-        costArray[2][4][3]=9.97;
-        costArray[2][4][4]=11.62;
-        costArray[2][4][5]=28.95;
+        costArray[2][4][1] = 9.15;
+        costArray[2][4][2] = 9.70;
+        costArray[2][4][3] = 9.97;
+        costArray[2][4][4] = 11.62;
+        costArray[2][4][5] = 28.95;
 
-        costArray[2][5][1]=24.58;
-        costArray[2][5][2]=23.75;
-        costArray[2][5][3]=27.60;
-        costArray[2][5][4]=38.62;
-        costArray[2][5][5]=28.95;
+        costArray[2][5][1] = 24.58;
+        costArray[2][5][2] = 23.75;
+        costArray[2][5][3] = 27.60;
+        costArray[2][5][4] = 38.62;
+        costArray[2][5][5] = 28.95;
 
     }
-    public static final double[][][] timeArray=new double[3][TotNum][TotNum];
+
     static {
         timeArray[0][0][1] = 14;
         timeArray[0][0][2] = 69;
