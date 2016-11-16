@@ -1,8 +1,12 @@
 package com.lejit.thetravellingman;
-import java.util.*;
+import java.util.*; // <- bad idea
 
 /**
  * Created by MY LENOVO on 10/11/2016.
+ */
+
+/*
+
  */
 public class DestinationMatrix {
     public static final HashMap<String,Integer> destination_matrix=new HashMap<String, Integer>();
@@ -14,10 +18,14 @@ public class DestinationMatrix {
         destination_matrix.put("Buddha Tooth Relic Temple",4);
         destination_matrix.put("The Singapore Zoo",5);
     }
+    public static final String[] DESTINATIONS = new String[] {
+            "Marina Bay Sands", "Singapore Flyer", "VivoCity", "Resorts World Sentosa", "Buddha Tooth Relic Temple", "The Singapore Zoo"
+    };
     final static int TotNum=destination_matrix.size();
     public static final double [][][] costArray=new double [3][TotNum][TotNum];
     static {
-        costArray[1][0][1]=0.83;
+        // bus
+        costArray[1][0][1]=0.83; // by bus, from marina bay to singapore flyer
         costArray[1][0][2]=1.18;
         costArray[1][0][3]=4.03;
         costArray[1][0][4]=0.88;
@@ -27,7 +35,7 @@ public class DestinationMatrix {
         costArray[1][1][2]=1.26;
         costArray[1][1][3]=4.03;
         costArray[1][1][4]=0.98;
-        costArray[1][1][4]=1.89;
+        costArray[1][1][5]=1.89;
 
 
         costArray[1][2][1]=1.18;

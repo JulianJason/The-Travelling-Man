@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+        itineraryButton.setOnClickListener(intentListener);
+        layoutButton.setOnClickListener(intentListener);
+        mapsButton.setOnClickListener(intentListener);
 
     }
 }
