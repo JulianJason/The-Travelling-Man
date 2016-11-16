@@ -1,4 +1,5 @@
 package com.lejit.thetravellingman;
+
 import java.util.ArrayList;
 
 public class DestinationMatrix {
@@ -15,6 +16,7 @@ public class DestinationMatrix {
         destination_matrix.add("Buddha Tooth Relic Temple");
         destination_matrix.add("The Singapore Zoo");
     }
+
 
     static {
         costArray[1][0][1] = 0.83;
