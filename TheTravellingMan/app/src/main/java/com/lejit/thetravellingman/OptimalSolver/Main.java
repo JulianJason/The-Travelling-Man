@@ -1,6 +1,7 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
 import com.lejit.thetravellingman.DestinationMatrix;
+import com.lejit.thetravellingman.DestinationMatrix_HASH;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,18 +16,16 @@ public class Main {
     static ArrayList<Integer> attractionCode;
     static MethodOfTransport[] transportations = {MethodOfTransport.FOOT, MethodOfTransport.TRAIN, MethodOfTransport.TAXI};
     static Attraction STARTING_POINT;
-    static double BUDGET = 100;
+    static double BUDGET = 5;
     static List<String> destination = new ArrayList<String>();
     public static void main(String[] args) {
         try {
-            HashMap<String,Integer> map = DestinationMatrix.destination_matrix;
+            HashMap<String,Integer> map = DestinationMatrix_HASH.destination_matrix;
             int size = map.size();
             attractions = new Attraction[size];
-            int i = 0;
            for (String key: map.keySet()) {
                int currentKey = matchString(key, map);
                attractions[currentKey] = new Attraction(key);
-               i+=1;
             }
 
 
@@ -70,10 +69,10 @@ public class Main {
             if (solution == null) {
                 throw new IllegalAccessException();
             }
-            System.out.println("route is : " + solution.route);
-            System.out.println("cost : " + (BUDGET - solution.cost));
-            System.out.println("time: " + solution.time);
-            System.out.println("tries: " + solution.tries);
+            System.out.println("route is : \n" + solution.route);
+            System.out.println("total cost : $" + Math.ceil(BUDGET - solution.cost));
+            System.out.println("total time: " + solution.time + "min");
+            System.out.println("machine tries: " + solution.tries);
 
         } catch (IllegalAccessException e) {
             System.out.println("Unable to access data");
