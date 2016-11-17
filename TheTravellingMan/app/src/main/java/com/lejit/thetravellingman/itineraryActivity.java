@@ -11,6 +11,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 
+import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
