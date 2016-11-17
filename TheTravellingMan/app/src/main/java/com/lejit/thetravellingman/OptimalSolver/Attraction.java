@@ -17,7 +17,7 @@ public class Attraction {
     public void addEdge(Attraction attraction, double time, double cost, MethodOfTransport transport){
         if(!attraction.name.equals(this.name)) {
             Edge newEdge = new Edge(attraction,transport,time,cost);
-//            System.out.println("Adding edge -> from " + this.name + " to " + attraction.name + " with time " + time + " and cost " + cost + " transport " + transport);
+            System.out.println("Adding edge -> from " + this.name + " to " + attraction.name + " with time " + time + " and cost " + cost + " transport " + transport);
             sortEdge(newEdge);
         }
     }

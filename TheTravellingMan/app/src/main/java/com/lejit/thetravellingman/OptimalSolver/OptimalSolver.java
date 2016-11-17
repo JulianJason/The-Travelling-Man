@@ -26,7 +26,7 @@ public class OptimalSolver {
         if (destination_left == 0) {
             if (solution.cost <= budget && solution.time >= time) {
                 solution.cost = budget;
-                solution.route = route;
+                solution.route = route + "\n end of route!";
                 solution.time = time;
             }
             return solution.time;
@@ -44,7 +44,7 @@ public class OptimalSolver {
                     if (destination_left == 1 && !e.attraction.name.equals(INITIAL_LOCATION)) { // Go back to starting point (MBS)
                         continue;
                     }
-                    String newRoute = route + " cost $" + e.cost + ", time" + e.time + "min to" + e.attraction.name + " using" + e.transport + " ";
+                    String newRoute = route + " to " + e.attraction.name + " cost $" + e.cost + ", time " + e.time + "min using " + e.transport + "\n";
                     double request_boundary = solve(e.attraction, budget - e.cost, time + e.time, newRoute, destination_left - 1, solution);
                     if (bound > request_boundary) {
                         bound = request_boundary;
