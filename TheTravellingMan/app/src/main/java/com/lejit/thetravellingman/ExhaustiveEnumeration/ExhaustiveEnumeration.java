@@ -1,10 +1,10 @@
-package com.lejit.thetravellingman;
+package com.lejit.thetravellingman.ExhaustiveEnumeration;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.lejit.thetravellingman.DestinationMatrix.costArray;
-import static com.lejit.thetravellingman.DestinationMatrix.destination_matrix;
-import static com.lejit.thetravellingman.DestinationMatrix.timeArray;
+import static com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix.costArray;
+import static com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix.destination_matrix;
+import static com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix.timeArray;
 
 public class ExhaustiveEnumeration {
     ArrayList<ArrayList<String>> possibleRoutes = new ArrayList<>();
@@ -75,20 +75,3 @@ public class ExhaustiveEnumeration {
     }
 }
 
-class Path implements Comparable<Path> {
-    final ArrayList<ArrayList<Object>> path;
-
-    Path(ArrayList<ArrayList<Object>> path) {
-        this.path = path;
-    }
-
-    public int compareTo(Path p) {
-        ExhaustiveEnumeration enumeration = new ExhaustiveEnumeration();
-        if (enumeration.getTime(this.path) > enumeration.getTime(p.path)) {
-            return 1;
-        } else if (enumeration.getTime(p.path) < enumeration.getTime(this.path)) {
-            return -1;
-        }
-        return 0;
-    }
-}
