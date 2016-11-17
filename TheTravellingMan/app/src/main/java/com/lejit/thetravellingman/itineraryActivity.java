@@ -11,6 +11,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 
+import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +48,7 @@ public class itineraryActivity extends AppCompatActivity {
     }
     private void loadList() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, DestinationMatrix.DESTINATIONS);
+                android.R.layout.simple_dropdown_item_1line, DestinationMatrix_HASH.DESTINATIONS);
         MultiAutoCompleteTextView destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
         destinationInput.setAdapter(adapter);
         destinationInput.setThreshold(2);

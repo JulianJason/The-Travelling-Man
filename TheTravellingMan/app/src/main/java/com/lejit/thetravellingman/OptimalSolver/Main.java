@@ -1,7 +1,7 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
-import com.lejit.thetravellingman.DestinationMatrix;
-import com.lejit.thetravellingman.DestinationMatrix_HASH;
+import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix;
+import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 
 import java.util.ArrayList;
 import java.util.HashMap;
