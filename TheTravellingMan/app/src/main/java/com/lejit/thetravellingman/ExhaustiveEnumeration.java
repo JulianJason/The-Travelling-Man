@@ -2,9 +2,9 @@ package com.lejit.thetravellingman;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.example09.DestinationMatrix.costArray;
-import static com.example09.DestinationMatrix.destination_matrix;
-import static com.example09.DestinationMatrix.timeArray;
+import static com.lejit.thetravellingman.DestinationMatrix.costArray;
+import static com.lejit.thetravellingman.DestinationMatrix.destination_matrix;
+import static com.lejit.thetravellingman.DestinationMatrix.timeArray;
 
 public class ExhaustiveEnumeration {
     ArrayList<ArrayList<String>> possibleRoutes = new ArrayList<>();
