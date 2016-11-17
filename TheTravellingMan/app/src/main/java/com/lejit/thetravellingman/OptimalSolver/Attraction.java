@@ -7,14 +7,14 @@ import java.util.List;
  * Created by USER on 11/15/2016.
  */
 
-public class Attraction {
+class Attraction {
     String name;
     List<Edge> edgeList = new ArrayList<Edge>();
-    public Attraction(String name) {
+    Attraction(String name) {
         this.name = name;
     }
 
-    public void addEdge(Attraction attraction, double time, double cost, MethodOfTransport transport){
+    void addEdge(Attraction attraction, double time, double cost, MethodOfTransport transport){
         if(!attraction.name.equals(this.name)) {
             Edge newEdge = new Edge(attraction,transport,time,cost);
             System.out.println("Adding edge -> from " + this.name + " to " + attraction.name + " with time " + time + " and cost " + cost + " transport " + transport);
@@ -22,7 +22,7 @@ public class Attraction {
         }
     }
 
-    public void sortEdge(Edge edge) {
+    void sortEdge(Edge edge) {
         boolean done = false;
         List<Edge> sortedList = new ArrayList<Edge>();
         if (edgeList.size() == 0) {

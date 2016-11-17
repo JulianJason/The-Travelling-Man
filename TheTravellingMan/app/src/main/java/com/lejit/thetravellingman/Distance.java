@@ -5,6 +5,11 @@ import java.util.ArrayList;
 /**
  * Created by Matthew on 10/11/2016.
  */
+
+/**
+ * How to use
+ *
+ */
 public class Distance {
 
     //****************************
@@ -117,7 +122,7 @@ public class Distance {
         return dropdownlist;
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(getWordCorrectionList("Park"));
-//    }
+    public static void main(String[] args) {
+        System.out.println(getWordCorrectionList("sentoza"));
+    }
 }

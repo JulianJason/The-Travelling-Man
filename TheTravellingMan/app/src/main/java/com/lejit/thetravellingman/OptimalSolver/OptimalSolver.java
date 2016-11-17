@@ -6,11 +6,11 @@ import java.util.List;
  * Created by USER on 11/15/2016.
  */
 
-public class OptimalSolver {
+class OptimalSolver {
     static String INITIAL_LOCATION;
     static List<String> DESTINATIONS;
 
-    public static SolutionClass initiate(Attraction attraction, double budget, List<String> destinations) {
+    SolutionClass initiate(Attraction attraction, double budget, List<String> destinations) {
         DESTINATIONS = destinations;
         INITIAL_LOCATION = attraction.name;
         SolutionClass solution = new SolutionClass();
@@ -20,7 +20,7 @@ public class OptimalSolver {
         return solution;
     }
 
-    public static double solve(Attraction attraction, double budget, double time, String route, int destination_left, SolutionClass solution) {
+    double solve(Attraction attraction, double budget, double time, String route, int destination_left, SolutionClass solution) {
 
         solution.tries++;
         if (destination_left == 0) {
