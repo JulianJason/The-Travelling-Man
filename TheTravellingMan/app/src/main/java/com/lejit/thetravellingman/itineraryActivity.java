@@ -13,6 +13,7 @@ import android.widget.MultiAutoCompleteTextView;
 
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

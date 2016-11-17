@@ -88,4 +88,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+<<<<<<< HEAD
 TheTravellingMan/.idea/
+=======
+TheTravellingMan/.idea/vcs.xml
+>>>>>>> c06a57de38b4371c37e8e74d8057e0c0f9760bc3

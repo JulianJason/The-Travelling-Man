@@ -204,5 +204,4 @@ public class DestinationMatrix {
         timeArray[2][5][3] = 36;
         timeArray[2][5][4] = 30;
     }
-
 }
