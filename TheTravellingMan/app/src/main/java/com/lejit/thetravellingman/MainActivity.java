@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -141,6 +142,14 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
             spinner.setAdapter(adapter);
+            Button rssButton = (Button) rootView.findViewById(R.id.toRSS);
+            rssButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            });
             return rootView;
         }
     }
