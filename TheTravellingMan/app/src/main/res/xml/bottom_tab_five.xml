@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
+        id="@+id/tab_home"
+        icon="@drawable/ic_home_icon"
+        title="Home"
+        barColorWhenSelected="#FF9800"/>
+    <tab
         id="@+id/tab_information"
         icon="@drawable/ic_information"
         title="More About Singapore"
@@ -20,9 +25,4 @@
         icon="@drawable/ic_sos_256"
         title="Emergency Contacts"
         barColorWhenSelected="#FF5252" />
-    <tab
-        id="@+id/tab_home"
-        icon="@drawable/ic_home_icon"
-        title="Home"
-        barColorWhenSelected="#FF9800"/>
 </tabs>

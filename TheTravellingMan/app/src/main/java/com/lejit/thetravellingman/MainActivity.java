@@ -76,19 +76,18 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 if (tabId == R.id.tab_information) {
-                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_food){
-                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_home){
-                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"Home Page",Toast.LENGTH_SHORT).show();
                 }else if(tabId == R.id.tab_SOS){
-                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_Updates){
-                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
                     startActivity(intent);
                 }
             }
@@ -173,6 +172,14 @@ public class MainActivity extends AppCompatActivity
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
             spinner.setAdapter(adapter);
+//            Button rssButton = (Button) rootView.findViewById(R.id.toRSS);
+//            rssButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(getActivity(), NewsUpdateActivity.class);
+//                    startActivity(intent);
+//                }
+//            });
             return rootView;
         }
     }
