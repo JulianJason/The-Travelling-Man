@@ -23,17 +23,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
-
 
 public class MainActivity extends AppCompatActivity
-        implements HomePage.OnFragmentInteractionListener{
+        implements ItenaryPlanner.OnFragmentInteractionListener{
 
     List<Address> matchedList;
     List<Integer> buttonList = Arrays.asList(R.id.first,R.id.map1,R.id.second,R.id.map2);
@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -80,8 +78,6 @@ public class MainActivity extends AppCompatActivity
                 if (tabId == R.id.tab_information) {
                     Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
                     startActivity(intent);
-                    // The tab with id R.id.tab_favorites was selected,
-                    // change your content accordingly.
                 }else if(tabId == R.id.tab_food){
                     Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
                     startActivity(intent);
@@ -97,47 +93,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
-//        final TabHost host = (TabHost) findViewById(R.id.tabHost);
-//        host.setup();
-//        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-//            @Override
-//            public void onTabChanged(String tabId) {
-//                for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
-//                    host.getTabWidget().getChildAt(i)
-//                            .setBackgroundResource(R.drawable.tab_selected); // unselected
-//                }
-//                host.getTabWidget().getChildAt(host.getCurrentTab())
-//                        .setBackgroundResource(R.drawable.tab_unselected); // selected
-//            }
-//        });
-//
-//        //Tab 1
-//        TabHost.TabSpec spec = host.newTabSpec("Tab One");
-//        spec.setContent(R.id.tab1);
-//        spec.setIndicator("Tab One");
-//
-//        host.addTab(spec);
-//
-//        //Tab 2
-//        spec = host.newTabSpec("Tab Two");
-//        spec.setContent(R.id.tab2);
-//        spec.setIndicator("Tab Two");
-//        host.addTab(spec);
-//
-//        //Tab 3
-//        spec = host.newTabSpec("Tab Three");
-//        spec.setContent(R.id.tab3);
-//        spec.setIndicator("Tab Three");
-//        host.addTab(spec);
-//
-//        for(int i=0;i<host.getTabWidget().getChildCount();i++){
-//            host.getTabWidget().getChildAt(i)
-//                    .setBackgroundResource(R.drawable.tab_unselected); // unselected
-//        }
-//        host.getTabWidget().setCurrentTab(1);
-//        host.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#C35817"));
-
+    }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -147,14 +103,6 @@ public class MainActivity extends AppCompatActivity
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
-    }
-
-//    public void tabOne(View view){
-//        Intent intent = new Intent(this,itineraryActivity.class);
-//        startActivity(intent);
-//        //host.setCurrentTab(tab);
-//    }
 
 
     @Override
@@ -244,8 +192,9 @@ public class MainActivity extends AppCompatActivity
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
-                case 0: return PlaceholderFragment.newInstance(position+1);
-                case 1 : return HomePage.newInstance();
+                case 2: return ItenaryPlanner.newInstance();  // This is the fragment for the itenary planner
+                case 0: return PlaceholderFragment.newInstance(position+1); // Ryan, insert your nearby location Page here
+                case 1 : return ItenaryPlanner.newInstance();  // This is the first page that users should see
                 default: return  PlaceholderFragment.newInstance(position+1);
             }
         }

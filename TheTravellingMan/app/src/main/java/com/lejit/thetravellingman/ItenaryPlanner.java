@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomePage.OnFragmentInteractionListener} interface
+ * {@link ItenaryPlanner.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomePage#newInstance} factory method to
+ * Use the {@link ItenaryPlanner#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomePage extends Fragment {
+public class ItenaryPlanner extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class HomePage extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public HomePage() {
+    public ItenaryPlanner() {
         // Required empty public constructor
     }
 
@@ -42,8 +42,8 @@ public class HomePage extends Fragment {
      * @return A new instance of fragment HomePage.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomePage newInstance(){ //String param1, String param2) {
-        HomePage fragment = new HomePage();
+    public static ItenaryPlanner newInstance(){ //String param1, String param2) {
+        ItenaryPlanner fragment = new ItenaryPlanner();
         Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
 //        args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class HomePage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_itenary_planner, container, false);
 
         // Inflate the layout for this fragment
         return view;

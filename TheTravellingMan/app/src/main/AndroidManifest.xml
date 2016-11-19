@@ -16,17 +16,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".layoutActivity"
-            android:label="@string/title_activity_layout"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".itineraryActivity"
             android:label="@string/title_activity_itinerary"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MainActivityJason"
-            android:label="@string/title_activity_main_Jason"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
