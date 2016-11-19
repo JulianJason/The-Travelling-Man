@@ -23,4 +23,9 @@
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="LanguageButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/silver</item>
+        <item name="colorButtonNormal">@color/gainsboro</item>
+    </style>
+
 </resources>
