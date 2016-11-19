@@ -8,9 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lejit.thetravellingman.MainActivity$PlaceholderFragment">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_speech_bubble"
+        android:orientation="vertical"
+        android:gravity="top|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi There!"/>
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/section_label"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="The Travelling man"
