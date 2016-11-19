@@ -22,4 +22,8 @@
     <string name="title_activity_news_update">NewsUpdateActivity</string>
     <string name="rss_intro">Get updated on events and happenings around Singapore</string>
     <string name="rss_subtitle"> Powered by Straits Times</string>
+    <string name="embassy_prompt"> test embassy prompt</string>
+    <string-array name="embassy_array">
+        <item>THIS array</item>
+    </string-array>
 </resources>
