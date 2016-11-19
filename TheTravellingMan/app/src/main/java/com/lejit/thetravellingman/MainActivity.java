@@ -1,9 +1,10 @@
 package com.lejit.thetravellingman;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.IdRes;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,6 +18,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
+
 
 public class MainActivity extends AppCompatActivity
         implements HomePage.OnFragmentInteractionListener{
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity
      */
     private ViewPager mViewPager;
 
+    private CoordinatorLayout coordinatorLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,17 +59,90 @@ public class MainActivity extends AppCompatActivity
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                    // The tab with id R.id.tab_favorites was selected,
+                    // change your content accordingly.
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
+//        final TabHost host = (TabHost) findViewById(R.id.tabHost);
+//        host.setup();
+//        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+//            @Override
+//            public void onTabChanged(String tabId) {
+//                for (int i = 0; i < host.getTabWidget().getChildCount(); i++) {
+//                    host.getTabWidget().getChildAt(i)
+//                            .setBackgroundResource(R.drawable.tab_selected); // unselected
+//                }
+//                host.getTabWidget().getChildAt(host.getCurrentTab())
+//                        .setBackgroundResource(R.drawable.tab_unselected); // selected
+//            }
+//        });
+//
+//        //Tab 1
+//        TabHost.TabSpec spec = host.newTabSpec("Tab One");
+//        spec.setContent(R.id.tab1);
+//        spec.setIndicator("Tab One");
+//
+//        host.addTab(spec);
+//
+//        //Tab 2
+//        spec = host.newTabSpec("Tab Two");
+//        spec.setContent(R.id.tab2);
+//        spec.setIndicator("Tab Two");
+//        host.addTab(spec);
+//
+//        //Tab 3
+//        spec = host.newTabSpec("Tab Three");
+//        spec.setContent(R.id.tab3);
+//        spec.setIndicator("Tab Three");
+//        host.addTab(spec);
+//
+//        for(int i=0;i<host.getTabWidget().getChildCount();i++){
+//            host.getTabWidget().getChildAt(i)
+//                    .setBackgroundResource(R.drawable.tab_unselected); // unselected
+//        }
+//        host.getTabWidget().setCurrentTab(1);
+//        host.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#C35817"));
+
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
     }
+
+//    public void tabOne(View view){
+//        Intent intent = new Intent(this,itineraryActivity.class);
+//        startActivity(intent);
+//        //host.setCurrentTab(tab);
+//    }
 
 
     @Override
@@ -91,6 +171,7 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -129,6 +210,7 @@ public class MainActivity extends AppCompatActivity
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                     R.array.language_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
+
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
             spinner.setAdapter(adapter);
