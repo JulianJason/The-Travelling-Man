@@ -96,7 +96,7 @@ public class Distance {
         }
 
         // Step 7
-
+        System.out.println("LEV DIST" + d[n][m]);
         return d[n][m];
 
     }
@@ -123,6 +123,6 @@ public class Distance {
     }
 
     public static void main(String[] args) {
-        System.out.println(getWordCorrectionList("sentoza"));
+        System.out.println(getWordCorrectionList("Park"));
     }
 }

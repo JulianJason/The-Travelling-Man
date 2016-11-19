@@ -245,11 +245,15 @@ public class NewsUpdateActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(List<RssData> rssFeed) {
-            if (rssFeed != null) {
-                parentRssFeed.clear();
+            parentRssFeed.clear();
+            if (rssFeed.isEmpty()) {
+                RssData emptyFeed = new RssData("RSS is empty, check again later", "Click to go to rss page", "http://www.straitstimes.com/rss-feeds");
+                parentRssFeed.add(emptyFeed);
+            } else {
                 parentRssFeed.addAll(0, rssFeed);
-                mAdapter.notifyDataSetChanged();
             }
+
+            mAdapter.notifyDataSetChanged();
         }
     }
     public static String ellipsis(final String text, int length)
