@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="tab_unselected">#F5DEB3</drawable>
+    <drawable name="tab_selected">	#DEB887</drawable>
+</resources>

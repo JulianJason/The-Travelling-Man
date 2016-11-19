@@ -5,8 +5,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.IdRes;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -24,12 +24,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements HomePage.OnFragmentInteractionListener{
+
+public class MainActivity extends AppCompatActivity
+        implements ItenaryPlanner.OnFragmentInteractionListener{
+
     List<Address> matchedList;
     List<Integer> buttonList = Arrays.asList(R.id.first,R.id.map1,R.id.second,R.id.map2);
     EditText LocationString;
@@ -48,13 +54,13 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
      */
     private ViewPager mViewPager;
 
+    private CoordinatorLayout coordinatorLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -64,17 +70,40 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(),itineraryActivity.class);
+                    startActivity(intent);
+                }
             }
         });
-
     }
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
 
     @Override
@@ -102,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -138,7 +168,9 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
             // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                     R.array.language_array, android.R.layout.simple_spinner_item);
+
             // Specify the layout to use when the list of choices appears
+
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
             spinner.setAdapter(adapter);
@@ -169,8 +201,9 @@ public class MainActivity extends AppCompatActivity implements HomePage.OnFragme
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
-                case 0: return PlaceholderFragment.newInstance(position+1);
-                case 1 : return HomePage.newInstance();
+                case 2: return ItenaryPlanner.newInstance();  // This is the fragment for the itenary planner
+                case 0: return PlaceholderFragment.newInstance(position+1); // Ryan, insert your nearby location Page here
+                case 1 : return ItenaryPlanner.newInstance();  // This is the first page that users should see
                 default: return  PlaceholderFragment.newInstance(position+1);
             }
         }

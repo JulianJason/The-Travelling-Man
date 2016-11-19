@@ -1,0 +1,105 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.lejit.thetravellingman.HomePage">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:text="PLACES TO VISIT"
+        android:textColor="#000"
+        android:textAlignment="gravity"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/listplaces"
+        android:layout_marginStart="20dp"/>
+
+    <ScrollView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="240dp"
+                    android:layout_height="2dp"
+                    android:background="#000"
+                    android:layout_alignStart="@+id/first"
+                    android:layout_marginTop="40dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="@string/first"
+                    android:background="@drawable/edit_text_bottom_border"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:textCursorDrawable="@null"
+                    android:ems="10"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/first"
+                    android:layout_alignParentStart="true" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/location"
+                    android:id="@+id/map1"
+                    android:layout_marginStart="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/line1"
+                    android:onClick="map"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="@string/second"
+                    android:background="@drawable/edit_text_bottom_border"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:textCursorDrawable="@null"
+                    android:ems="10"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/second"
+                    android:layout_alignParentStart="true" />
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="240dp"
+                    android:layout_height="2dp"
+                    android:background="#000"
+                    android:layout_alignStart="@+id/second"
+                    android:layout_marginTop="40dp" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/location"
+                    android:id="@+id/map2"
+                    android:layout_marginStart="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/line2"
+                    android:onClick="map"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

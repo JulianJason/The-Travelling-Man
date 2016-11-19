@@ -8,6 +8,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main_Jason">MainActivityJason</string>
     <string-array name="language_array">
+        <item>Select Language</item>
         <item>English</item>
         <item>Chinese</item>
         <item>Malay</item>
