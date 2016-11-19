@@ -1,18 +1,16 @@
-package com.example.matthew.emergencypage;
+package com.lejit.thetravellingman;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -79,7 +77,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
         String text = spinner.getSelectedItem().toString();
         LayoutInflater layoutInflater= (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         ViewGroup container;
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_main);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_emergency);
         final PopupWindow popupWindow;
         switch(text) {
             case "Australia":
