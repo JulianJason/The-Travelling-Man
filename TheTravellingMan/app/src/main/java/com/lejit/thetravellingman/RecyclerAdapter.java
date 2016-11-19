@@ -2,12 +2,15 @@ package com.lejit.thetravellingman;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.lejit.thetravellingman.Model.RssData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,15 +20,15 @@ import java.util.List;
  */
 
 public class RecyclerAdapter extends RecyclerView.Adapter {
-    private List<String> dataset;
-    public RecyclerAdapter(List<String> data) {
+    private List<RssData> dataset;
+    public RecyclerAdapter(List<RssData> data) {
         Log.d("ASYN", "" + data);
         if (data != null) {
             this.dataset = data;
             Log.d("ASYN", "DATASET =" + this.dataset.toString());
         } else {
             Log.d("ASYN", "CLEARED DATASET");
-            this.dataset = new ArrayList<String>();
+            this.dataset = new ArrayList<RssData>();
         }
     }
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -66,10 +69,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final String item = dataset.get(position);
+        final RssData item = dataset.get(position);
         final Holder tempHolder = (Holder) holder;
-        tempHolder.mItemTitle.setText("aaa");
-        tempHolder.mItemDescription.setText("descriptionHere");
+        tempHolder.mItemTitle.setText(item.getTitle());
+        tempHolder.mItemDescription.setText(item.getDesc());
+        View.OnClickListener linkListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                String url = item.getLink();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                context.startActivity(i);
+            }
+        };
+
+        tempHolder.mItemTitle.setOnClickListener(linkListener);
+        tempHolder.mItemDescription.setOnClickListener(linkListener);
     }
 
     @Override

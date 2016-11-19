@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:weightSum="1">
 
 
     <TextView
         android:id="@+id/item_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_gravity="top|start"
-        android:layout_weight="0.01"
-        android:text="Some date"/>
+        android:text="Some date"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_gravity="center|start"
-        android:layout_weight="0.01"
+        android:layout_weight="0.07"
         android:ellipsize="end"
         android:maxLines="5"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:width="0dip"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAlignment="viewStart" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0.01" />
 </LinearLayout>

@@ -19,4 +19,6 @@
     <string name="first">First Location</string>
     <string name="second">Second Location</string>
     <string name="title_activity_news_update">NewsUpdateActivity</string>
+    <string name="rss_intro">Get updated on events and happenings around Singapore</string>
+    <string name="rss_subtitle"> Powered by Straits Times</string>
 </resources>

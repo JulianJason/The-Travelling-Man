@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.lejit.thetravellingman.Model.RssData;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -32,7 +35,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
     private LinearLayoutManager mLinearLayoutManager;
 //    private TextView mRssFeed;
     private RecyclerAdapter mAdapter;
-    private List<String> parentRssFeed;
+    private List<RssData> parentRssFeed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,16 +48,17 @@ public class NewsUpdateActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         GetRSS rssGetter = new GetRSS(getApplicationContext(), viewGroup);
         // setup recycler view
-        parentRssFeed = new ArrayList<String>();
+        parentRssFeed = new ArrayList<RssData>();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mAdapter = new RecyclerAdapter(parentRssFeed);
         mRecyclerView.setAdapter(mAdapter);
+        Log.d("ASYN", "ADAPTER SET");
         rssGetter.execute();
     }
 
-    private class GetRSS extends AsyncTask<Void, Void, List<String>> {
+    private class GetRSS extends AsyncTask<Void, Void, List<RssData>> {
         private Context mContext;
         private View rootView;
         public GetRSS(Context context, View rootView) {
@@ -63,8 +67,9 @@ public class NewsUpdateActivity extends AppCompatActivity {
         }
 
         @Override
-        protected List<String> doInBackground(Void... voids) {
-            List<String> result = null;
+        protected List<RssData> doInBackground(Void... voids) {
+            List<RssData> result = null;
+            Log.d("ASYN", "DOING BACKGROUND SET");
             try {
                 String feed = getRssFeed();
                 result = parse(feed);
@@ -76,7 +81,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
             Log.d("ASYN", "ReSUlT IS =" + result);
             return result;
         }
-        private List<String> parse(String rssFeed) throws XmlPullParserException, IOException {
+        private List<RssData> parse(String rssFeed) throws XmlPullParserException, IOException {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             XmlPullParser xpp = factory.newPullParser();
             xpp.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -91,10 +96,10 @@ public class NewsUpdateActivity extends AppCompatActivity {
             String rssFeed = "";
             try {
                 // TODO change to Straits times singapore rss
-                URL url = new URL("http://www.straitstimes.com/news/sport/rss.xml");
+                URL url = new URL("http://www.straitstimes.com/news/singapore/rss.xml");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 in = conn.getInputStream();
-//                Log.d("ASYN", "OPENING CONNECTION" + in);
+                Log.d("ASYN", "OPENING CONNECTION" + in);
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
 
@@ -109,7 +114,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
             } finally {
                 if (in != null) {
                     try {
-//                        Log.d("ASYN", "CLOSING CONNECTION" + in);
+                        Log.i("ASYN", "CLOSING CONNECTION" + in);
                         in.close();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -119,9 +124,9 @@ public class NewsUpdateActivity extends AppCompatActivity {
             return rssFeed;
         }
 
-        private List<String> readRss(XmlPullParser parser)
+        private List<RssData> readRss(XmlPullParser parser)
                 throws XmlPullParserException, IOException {
-            List<String> items = new ArrayList<>();
+            List<RssData> items = new ArrayList<>();
             parser.require(XmlPullParser.START_TAG, null, "rss");
             while (parser.next() != XmlPullParser.END_TAG) {
                 if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -137,9 +142,9 @@ public class NewsUpdateActivity extends AppCompatActivity {
             return items;
         }
 
-        private List<String> readChannel(XmlPullParser parser)
+        private List<RssData> readChannel(XmlPullParser parser)
                 throws IOException, XmlPullParserException {
-            List<String> items = new ArrayList<>();
+            List<RssData> items = new ArrayList<>();
             parser.require(XmlPullParser.START_TAG, null, "channel");
             while (parser.next() != XmlPullParser.END_TAG) {
                 if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -155,21 +160,29 @@ public class NewsUpdateActivity extends AppCompatActivity {
             return items;
         }
 
-        private String readItem(XmlPullParser parser) throws XmlPullParserException, IOException {
-            String result = null;
+        private RssData readItem(XmlPullParser parser) throws XmlPullParserException, IOException {
+            RssData rssItem = new RssData();
+
             parser.require(XmlPullParser.START_TAG, null, "item");
             while (parser.next() != XmlPullParser.END_TAG) {
                 if (parser.getEventType() != XmlPullParser.START_TAG) {
                     continue;
                 }
                 String name = parser.getName();
+                Log.d("ASYN", "parset getName = " + name);
                 if (name.equals("title")) {
-                    result = readTitle(parser);
+                    rssItem.setTitle(readTitle(parser));
+                } else if (name.equals("link")) {
+                    rssItem.setLink(readLink(parser));
+                } else if (name.equals("description")) {
+                    rssItem.setDesc(readDescription(parser));
                 } else {
                     skip(parser);
                 }
             }
-            return result;
+
+            Log.d("ASYN,", "readItem result = " + rssItem);
+            return rssItem;
         }
 
         // Processes title tags in the feed.
@@ -178,7 +191,28 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.START_TAG, null, "title");
             String title = readText(parser);
             parser.require(XmlPullParser.END_TAG, null, "title");
+            Log.d("ASYN,", "readTitle result = " + title);
             return title;
+        }
+
+        private String readLink(XmlPullParser parser)
+                throws IOException, XmlPullParserException {
+            parser.require(XmlPullParser.START_TAG, null, "link");
+            String link = readText(parser);
+            parser.require(XmlPullParser.END_TAG, null, "link");
+            Log.d("ASYN,", "readLink result = " + link);
+            return link;
+        }
+
+        private String readDescription(XmlPullParser parser)
+                throws IOException, XmlPullParserException {
+            parser.require(XmlPullParser.START_TAG, null, "description");
+            String description = readText(parser);
+            parser.require(XmlPullParser.END_TAG, null, "description");
+            description = Html.fromHtml(description).toString();
+            description = ellipsis(description, 300);
+            Log.d("ASYN,", "readDescription result = " + description);
+            return description;
         }
 
 
@@ -189,6 +223,8 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 result = parser.getText();
                 parser.nextTag();
             }
+
+//            Log.d("ASYN,", "readText result = " + result);
             return result;
         }
         private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -208,7 +244,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
             }
         }
         @Override
-        protected void onPostExecute(List<String> rssFeed) {
+        protected void onPostExecute(List<RssData> rssFeed) {
             if (rssFeed != null) {
                 parentRssFeed.clear();
                 parentRssFeed.addAll(0, rssFeed);
@@ -216,6 +252,17 @@ public class NewsUpdateActivity extends AppCompatActivity {
             }
         }
     }
+    public static String ellipsis(final String text, int length)
+    {
+        // The letters [iIl1] are slim enough to only count as half a character.
+        length += Math.ceil(text.replaceAll("[^iIl]", "").length() / 2.0d);
 
+        if (text.length() > length)
+        {
+            return text.substring(0, length - 3) + "...";
+        }
+
+        return text;
+    }
 }
 
