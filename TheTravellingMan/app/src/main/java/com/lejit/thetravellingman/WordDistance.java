@@ -113,7 +113,7 @@ public class WordDistance {
 
     public static void main(String[] args) {
 //        System.out.println(getWordCorrectionList("Park"));
-        System.out.println(getWordCorrectionList("Gardens by the"));
+//        System.out.println(getWordCorrectionList("Gardens by the"));
     }
 
 }
