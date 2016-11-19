@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,12 +21,12 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter {
     private List<RssData> dataset;
     public RecyclerAdapter(List<RssData> data) {
-        Log.d("ASYN", "" + data);
+//        Log.d("ASYN", "" + data);
         if (data != null) {
             this.dataset = data;
-            Log.d("ASYN", "DATASET =" + this.dataset.toString());
+//            Log.d("ASYN", "DATASET =" + this.dataset.toString());
         } else {
-            Log.d("ASYN", "CLEARED DATASET");
+//            Log.d("ASYN", "CLEARED DATASET");
             this.dataset = new ArrayList<RssData>();
         }
     }
