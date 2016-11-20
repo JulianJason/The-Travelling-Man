@@ -1,7 +1,5 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
-import android.util.Log;
-
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 import com.lejit.thetravellingman.Model.ItineraryRow;
 
@@ -28,7 +26,7 @@ public class getOptimizedSolution {
     private static List<String> destinationStatic = new ArrayList<String>();
     private static HashMap<String,Integer> map = DestinationMatrix_HASH.destination_matrix;
     SolutionClass solution;
-    private double BUDGET = 5;
+    private double budget = 100;
     public List<ItineraryRow> breakdownSolution;
 
     public getOptimizedSolution() {
@@ -36,7 +34,7 @@ public class getOptimizedSolution {
 
     public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget) {
         destinationStatic.clear();
-        this.BUDGET = budget;
+        this.budget = budget;
         map = DestinationMatrix_HASH.destination_matrix;
         int size = map.size();
         initialize(size);
@@ -44,12 +42,12 @@ public class getOptimizedSolution {
         for (String destination: destinationArray) {
             destinationStatic.add(destination);
         }
-        Log.d("ASYN", "DESTIN = " + destinationStatic.toString());
+//        Log.d("ASYN", "DESTIN = " + destinationStatic.toString());
         Attraction start = attractions[0];
         OptimalSolver optimalSolver = new OptimalSolver();
         setupReducedHashMap(size);
         SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic);
-        Log.d("ASYN", "rout =" + solution.route);
+//        Log.d("ASYN", "rout =" + solution.route);
         breakdownSolution = findBreakDownSolution(solution);
         this.solution = solution;
         return breakdownSolution;
@@ -94,22 +92,6 @@ public class getOptimizedSolution {
             }
         }
     }
-    public double getOptimalTime() {
-        return this.solution.time;
-    }
-
-    public double getOptimalCost() {
-        return this.BUDGET - this.solution.cost;
-    }
-
-    public String getRoute() {
-        return this.solution.route;
-    }
-
-    public int getTries() {
-        return this.solution.tries;
-    }
-
     private int matchString(String input, HashMap<String, Integer> map) {
         int entry = map.get(input);
         if (entry < 0) {
@@ -123,7 +105,7 @@ public class getOptimizedSolution {
         List<ItineraryRow> breakdown = new ArrayList<ItineraryRow>();
 
         // add initial solution
-        breakdown.add(new ItineraryRow("Start", solution.getEnd(), "" + solution.getTime(), "" + solution.getCost(), "NA"));
+        breakdown.add(new ItineraryRow("Start", solution.getEnd(), "" + solution.getTime(), "" + solution.getCost(), "Overall trip cost"));
         if (solution.route != null && !solution.route.isEmpty()) {
             String[] splitted = solution.route.split("[\\r?\\n]+");
             String regex = "ROUTE(.*?)endROUTE COST(.*?)endCOST TIME(.*?)endTIME USING(.*?)endITEM";

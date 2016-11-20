@@ -24,6 +24,44 @@ public class DestinationMatrix_HASH {
     final static int TotNum=destination_matrix.size();
     public static final double [][][] costArray=new double [3][TotNum][TotNum];
     static {
+        // By foot
+        costArray[0][0][1]=0; // by bus, from marina bay to singapore flyer
+        costArray[0][0][2]=0;
+        costArray[0][0][3]=0;
+        costArray[0][0][4]=0;
+        costArray[0][0][5]=0;
+
+        costArray[0][1][0]=0;
+        costArray[0][1][2]=0;
+        costArray[0][1][3]=0;
+        costArray[0][1][4]=0;
+        costArray[0][1][5]=0;
+
+
+        costArray[0][2][0]=0;
+        costArray[0][2][1]=0;
+        costArray[0][2][3]=0;
+        costArray[0][2][4]=0;
+        costArray[0][2][5]=0;
+
+        costArray[0][3][0]=0;
+        costArray[0][3][1]=0;
+        costArray[0][3][2]=0;
+        costArray[0][3][4]=0;
+        costArray[0][3][5]=0;
+
+        costArray[0][4][0]=0;
+        costArray[0][4][1]=0;
+        costArray[0][4][2]=0;
+        costArray[0][4][3]=0;
+        costArray[0][4][5]=0;
+
+        costArray[0][5][0]=0;
+        costArray[0][5][1]=0;
+        costArray[0][5][2]=0;
+        costArray[0][5][3]=0;
+        costArray[0][5][4]=0;
+
         // bus
         costArray[1][0][1]=0.83; // by bus, from marina bay to singapore flyer
         costArray[1][0][2]=1.18;
