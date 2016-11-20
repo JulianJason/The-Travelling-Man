@@ -13,13 +13,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,18 +35,23 @@ import com.roughike.bottombar.OnTabSelectListener;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity
-        implements ItenaryPlanner.OnFragmentInteractionListener{
+        implements ItenaryPlanner.OnFragmentInteractionListener,AttractionsNearby.OnFragmentInteractionListener{
 
     public static String language = "English";
 
     List<Address> matchedList;
     List<Integer> buttonList = Arrays.asList(R.id.first,R.id.map1,R.id.second,R.id.map2);
+    List<Integer> webviewList = Arrays.asList(R.id.name1,R.id.r1,R.id.name2,R.id.r2,R.id.name3,R.id.r3,R.id.name4,R.id.r4,R.id.name5,R.id.r5,R.id.name6,R.id.r6);
+    HashMap<Integer,String> hash = new HashMap<>();
     EditText LocationString;
+    RelativeLayout rel;
+    String attr;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -62,7 +73,13 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Setting urls to name of attractions
+        hash.put(R.id.name1,"http://www.yoursingapore.com/see-do-singapore/recreation-leisure/resorts/marina-bay-sands.html");
+        hash.put(R.id.name2,"http://www.yoursingapore.com/see-do-singapore/recreation-leisure/viewpoints/singapore-flyer.html");
+        hash.put(R.id.name3,"http://www.vivocity.com.sg/leisure");
+        hash.put(R.id.name4,"http://www.yoursingapore.com/see-do-singapore/recreation-leisure/resorts/resorts-world-sentosa.html");
+        hash.put(R.id.name5,"http://www.yoursingapore.com/see-do-singapore/culture-heritage/places-of-worship/buddha-tooth-relic-temple-museum.html");
+        hash.put(R.id.name6,"http://www.yoursingapore.com/see-do-singapore/nature-wildlife/fun-with-animals/singapore-zoo.html");
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -71,6 +88,24 @@ public class MainActivity extends AppCompatActivity
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {   //set listener for Toast
+            @Override
+            public void onPageSelected(int position) {
+                if (position==2) {
+                    Toast toast = Toast.makeText(getApplicationContext(),"Press to find out more!",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER,0,350);//adjust position of toast upwards
+                    toast.show();
+                }
+            }
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
 
@@ -293,7 +328,7 @@ public class MainActivity extends AppCompatActivity
             switch (position){
                 case 0: return PlaceholderFragment.newInstance(position+1);     // Home Page
                 case 1 : return ItenaryPlanner.newInstance();                   // This is the fragment for the itenary planner
-                case 2: return ItenaryPlanner.newInstance();                    // This should house the attractions nearby
+                case 2: return AttractionsNearby.newInstance();                    // This should house the attractions nearby
                 default: return  PlaceholderFragment.newInstance(position+1);
             }
         }
@@ -362,5 +397,33 @@ public class MainActivity extends AppCompatActivity
         myIntent.setData(Uri.parse("geo:"+lat+","+lon+"?q="+encoded));
         Intent chooser=Intent.createChooser(myIntent,"Launch Maps");
         startActivity(chooser);
+    }
+
+    //popup window -- details of attractions: using webview
+    public void popup(View v) {
+
+        for(int i=0;i<webviewList.size();i++){
+            if(webviewList.get(i)==v.getId()){
+                rel = (RelativeLayout) findViewById(webviewList.get(i+1));
+                attr = hash.get(v.getId());
+            }
+        }
+        LayoutInflater layInf = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        ViewGroup window = (ViewGroup)layInf.inflate(R.layout.fragment_pop,null);
+        LinearLayout ll = (LinearLayout) window.findViewById(R.id.linlay);
+        final WebView webview = (WebView)ll.findViewById(R.id.webview);
+
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl(attr);
+
+        final PopupWindow popupWindow = new PopupWindow(window,670,470,true);
+        popupWindow.showAtLocation(rel, Gravity.NO_GRAVITY,30,485);
+        window.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent m){
+                popupWindow.dismiss();
+                return true;
+            }
+        });
     }
 }
