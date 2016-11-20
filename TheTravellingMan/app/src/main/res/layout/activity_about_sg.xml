@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lejit.thetravellingman.AboutSG"
     android:weightSum="1"
-    android:id="@+id/scrollDict">
+    android:id="@+id/scrollDict"
+    android:background="@drawable/singapore_skyline_ting">
 
     <LinearLayout
         android:layout_width="match_parent"
