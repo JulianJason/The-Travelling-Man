@@ -47,7 +47,7 @@
     <string-array name="embassy_array">
         <item>THIS array</item>
     </string-array>
-    <string name="attr">WHAT'S NEAR YOU</string>
+    <string name="attr">WHAT\'S NEAR YOU</string>
     <string name="mbs">Marina Bay Sands</string>
     <string name="dist1">25.0 km</string>
     <string name="flyer">Singapore Flyer</string>
