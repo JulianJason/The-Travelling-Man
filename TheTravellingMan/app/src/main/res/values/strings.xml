@@ -48,4 +48,14 @@
     <string-array name="embassy_array">
         <item>THIS array</item>
     </string-array>
+    <string name="attr">WHAT'S NEAR YOU</string>
+    <string name="mbs">Marina Bay Sands</string>
+    <string name="dist1">25.0 km</string>
+    <string name="flyer">Singapore Flyer</string>
+    <string name="dist2">15.0 km</string>
+    <string name="vivo">Vivo City</string>
+    <string name="dist3">35.0 km</string>
+    <string name="rws">Resort World Sentosa</string>
+    <string name="buddha">Buddha Tooth Relic Temple</string>
+    <string name="zoo">Singapore Zoo</string>
 </resources>
