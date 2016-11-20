@@ -9,18 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="141dp">
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/fromResult"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="24sp"
-            android:layout_alignBaseline="@+id/toResult"
-            android:layout_alignBottom="@+id/toResult"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="34dp" />
-
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -39,27 +27,38 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:layout_marginBottom="11dp"
             android:layout_alignBottom="@+id/timeIcon"
-            android:layout_alignEnd="@+id/fromResult" />
+            android:layout_toEndOf="@+id/timeIcon"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/methodOfTransportText"
+            android:layout_alignBaseline="@+id/costValue"
+            android:layout_alignBottom="@+id/costValue"
+            android:layout_toEndOf="@+id/costValue"
+            android:layout_marginStart="36dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/dollar_icon"
             android:id="@+id/costIcon"
-            android:layout_marginStart="27dp"
             android:layout_alignTop="@+id/timeIcon"
-            android:layout_toEndOf="@+id/timeValue" />
+            android:layout_toEndOf="@+id/timeValue"
+            android:layout_marginStart="12dp" />
 
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/costValue"
+            android:id="@+id/fromResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:layout_alignBaseline="@+id/timeValue"
-            android:layout_alignBottom="@+id/timeValue"
-            android:layout_toEndOf="@+id/costIcon"
-            android:layout_marginStart="20dp" />
+            android:textSize="18sp"
+            android:layout_alignBottom="@+id/toResult"
+            android:layout_alignStart="@+id/timeIcon" />
 
         <TextView
             android:text="TextView"
@@ -67,18 +66,20 @@
             android:layout_height="wrap_content"
             android:id="@+id/toResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="24sp"
-            android:layout_marginTop="23dp"
+            android:textSize="18sp"
+            android:layout_marginTop="26dp"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/costValue" />
+            android:layout_toEndOf="@+id/costValue" />
 
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/costValue"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="19dp"
-            android:id="@+id/methodOfTransportText" />
+            android:id="@+id/costValue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginStart="16dp"
+            android:layout_alignBaseline="@+id/timeValue"
+            android:layout_alignBottom="@+id/timeValue"
+            android:layout_toEndOf="@+id/costIcon" />
     </RelativeLayout>
 </LinearLayout>

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
@@ -27,6 +27,7 @@ import java.util.List;
 
 public class ItineraryActivity extends AppCompatActivity {
     private MultiAutoCompleteTextView destinationInput;
+    private EditText budgetInput;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private ItineraryRecyclerAdapter mAdapter;
@@ -35,10 +36,7 @@ public class ItineraryActivity extends AppCompatActivity {
     public List<String> attraction_list = new ArrayList<String>();
     public List<ItineraryRow> parentItineraryRowList;
     // initiate default variables
-    public double budget = 0;
-    public double bestTime = 9999;
-    public String bestRoute = "";
-    public String bestMethod = "";
+
     getOptimizedSolution solutionSolver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +70,13 @@ public class ItineraryActivity extends AppCompatActivity {
     private void setInputButtonListener() {
         Button inputButton = (Button) findViewById(R.id.inputButton);
         destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
+        budgetInput = (EditText) findViewById(R.id.budgetInput);
         inputButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String unprocessedData = destinationInput.getText().toString();
-                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData);
+                double budget = Double.parseDouble(budgetInput.getText().toString());
+                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget);
                 asyncHelper.execute();
             }
         });
@@ -86,10 +86,12 @@ public class ItineraryActivity extends AppCompatActivity {
         private Context mContext;
         private View rootView;
         private String unprocessedData;
-        public RouteAsyncHelper(Context context, String unprocessedData) {
+        private double budget;
+        public RouteAsyncHelper(Context context, String unprocessedData, double budget) {
             this.mContext=context;
 //            this.rootView=rootView;
             this.unprocessedData = unprocessedData;
+            this.budget = budget;
         }
 
         @Override
@@ -101,7 +103,7 @@ public class ItineraryActivity extends AppCompatActivity {
                     attraction_input = new ArrayList<String>();
                     attraction_input.clear();
                     attraction_input.addAll((splittedData));
-                    result = solutionSolver.findOptimalPath(attraction_input, 999);
+                    result = solutionSolver.findOptimalPath(attraction_input, budget);
 
                 } else {
                     Toast toast = new Toast(getApplicationContext());
@@ -115,9 +117,11 @@ public class ItineraryActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<ItineraryRow> itineraryRows) {
             parentItineraryRowList.clear();
-            Log.d("ASYN", "post execute itinerary row" + itineraryRows);
+            if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
+                itineraryRows.remove(itineraryRows.size() -1);
+            }
+//            Log.d("ASYN", "post execute itinerary row" + itineraryRows);
             if (itineraryRows.isEmpty()) {
-
             } else {
                 parentItineraryRowList.addAll(0, itineraryRows);
             }

@@ -17,6 +17,7 @@ class OptimalSolver {
         solution.time = 999999999;
         double time = solve(attraction, budget, 0, "Start", destinations.size(), solution);
         solution.time = time;
+        solution.cost = budget - (Math.ceil(solution.cost*100))/100;
         return solution;
     }
 
@@ -33,20 +34,19 @@ class OptimalSolver {
         } else {
             List<Edge> queue = attraction.edgeList;
             double bound = Integer.MAX_VALUE;
-            for (Edge e : queue) {
-                if (route.contains(e.attraction.name) || !DESTINATIONS.contains(e.attraction.name)) { //No repeating destination
+            for (Edge edge : queue) {
+                if (route.contains(edge.attraction.name) || !DESTINATIONS.contains(edge.attraction.name)) {
                     continue;
                 }
-                if (e.cost <= budget && e.time < bound) {
-                    if (destination_left > 1 && e.attraction.name.equals(INITIAL_LOCATION)) {
+                if (edge.cost <= budget && edge.time < bound) {
+                    if (destination_left > 1 && edge.attraction.name.equals(INITIAL_LOCATION)) {
                         continue;
                     }
-                    if (destination_left == 1 && !e.attraction.name.equals(INITIAL_LOCATION)) { // Go back to starting point (MBS)
+                    if (destination_left == 1 && !edge.attraction.name.equals(INITIAL_LOCATION)) {
                         continue;
                     }
-                    String newRoute = route + " to " + e.attraction.name + " cost $" + e.cost + ", time " + e.time + "min using " + e.transport + "\n";
-                    String computerizedRoute = route + "ROUTE"  + e.attraction.name + "endROUTE COST" + e.cost + "endCOST TIME" + e.time + " minendTIME USING" + e.transport + " endITEM\n";
-                    double request_boundary = solve(e.attraction, budget - e.cost, time + e.time, computerizedRoute, destination_left - 1, solution);
+                    String computerizedRoute = route + "ROUTE"  + edge.attraction.name + "endROUTE COST" + edge.cost + "endCOST TIME" + edge.time + " minendTIME USING" + edge.transport + " endITEM\n";
+                    double request_boundary = solve(edge.attraction, budget - edge.cost, time + edge.time, computerizedRoute, destination_left - 1, solution);
                     if (bound > request_boundary) {
                         bound = request_boundary;
                     }

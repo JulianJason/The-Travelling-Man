@@ -19,12 +19,10 @@ import java.util.List;
 public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
     private List<ItineraryRow> dataset;
     public ItineraryRecyclerAdapter(List<ItineraryRow> data) {
-        Log.d("ASYN","INITIATED!");
+//        Log.d("ASYN","INITIATED!");
         if (data != null) {
-            for (ItineraryRow row : data) {
-            }
             this.dataset = data;
-            Log.d("DATA", "datasize" + dataset.size());
+//            Log.d("DATA", "datasize" + dataset.size());
         } else {
             this.dataset = new ArrayList<ItineraryRow>();
         }
@@ -72,9 +70,9 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
         if (position != 0) {
             tempHolder.mFrom.setText(dataset.get(position - 1).getTo());
         } else {
-            tempHolder.mFrom.setText("START");
+            tempHolder.mFrom.setText("Estimated cost to ");
         }
-        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
+//        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
         tempHolder.mTo.setText(item.getTo());
         tempHolder.mCost.setText(item.getCost());
         tempHolder.mTime.setText(item.getTime());
