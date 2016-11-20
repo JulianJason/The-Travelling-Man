@@ -307,6 +307,15 @@ public class MainActivity extends AppCompatActivity
 //                    startActivity(intent);
 //                }
 //            });
+            View.OnClickListener tempListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), ItineraryActivity.class);
+                    startActivity(intent);
+                }
+            };
+            Button tempButton = (Button) rootView.findViewById(R.id.tempButton);
+            tempButton.setOnClickListener(tempListener);
             return rootView;
         }
     }

@@ -49,14 +49,14 @@
             android:layout_alignBottom="@+id/attractionInputTextView"
             android:layout_alignParentEnd="true" />
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/attractionInputTextView"
+            android:layout_height="389dp"
+            android:layout_marginBottom="23dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp"
-            android:id="@+id/DestinationListView"
-            android:layout_marginLeft="16dp" />
+            android:layout_below="@+id/attractionInputTextView"
+            android:id="@+id/itineraryRecyclerView" />
 
     </RelativeLayout>
 

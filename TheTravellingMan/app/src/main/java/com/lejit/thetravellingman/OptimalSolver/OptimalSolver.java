@@ -21,13 +21,13 @@ class OptimalSolver {
     }
 
     double solve(Attraction attraction, double budget, double time, String route, int destination_left, SolutionClass solution) {
-
         solution.tries++;
         if (destination_left == 0) {
             if (solution.cost <= budget && solution.time >= time) {
                 solution.cost = budget;
                 solution.route = route + "\n end of route!";
                 solution.time = time;
+                solution.end = attraction.name;
             }
             return solution.time;
         } else {
@@ -45,7 +45,8 @@ class OptimalSolver {
                         continue;
                     }
                     String newRoute = route + " to " + e.attraction.name + " cost $" + e.cost + ", time " + e.time + "min using " + e.transport + "\n";
-                    double request_boundary = solve(e.attraction, budget - e.cost, time + e.time, newRoute, destination_left - 1, solution);
+                    String computerizedRoute = route + "ROUTE"  + e.attraction.name + "endROUTE COST" + e.cost + "endCOST TIME" + e.time + " minendTIME USING" + e.transport + " endITEM\n";
+                    double request_boundary = solve(e.attraction, budget - e.cost, time + e.time, computerizedRoute, destination_left - 1, solution);
                     if (bound > request_boundary) {
                         bound = request_boundary;
                     }

@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -33,8 +32,7 @@ import java.util.List;
 public class NewsUpdateActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
-//    private TextView mRssFeed;
-    private RecyclerAdapter mAdapter;
+    private NewsRecyclerAdapter mAdapter;
     private List<RssData> parentRssFeed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mAdapter = new RecyclerAdapter(parentRssFeed);
+        mAdapter = new NewsRecyclerAdapter(parentRssFeed);
         mRecyclerView.setAdapter(mAdapter);
 //        Log.d("ASYN", "ADAPTER SET");
         rssGetter.execute();
@@ -169,7 +167,7 @@ public class NewsUpdateActivity extends AppCompatActivity {
                     continue;
                 }
                 String name = parser.getName();
-                Log.d("ASYN", "parset getName = " + name);
+//                Log.d("ASYN", "parset getName = " + name);
                 if (name.equals("title")) {
                     rssItem.setTitle(readTitle(parser));
                 } else if (name.equals("link")) {
