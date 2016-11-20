@@ -114,13 +114,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 if (tabId == R.id.tab_information) {
-                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_food){
                     Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_home){
-                    Toast.makeText(getApplicationContext(),"Home Page",Toast.LENGTH_SHORT).show();
+
                 }else if(tabId == R.id.tab_SOS){
                     Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
                     startActivity(intent);
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTabReSelected(@IdRes int tabId) {
                 if (tabId == R.id.tab_information) {
-                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_food){
                     Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
@@ -252,9 +252,13 @@ public class MainActivity extends AppCompatActivity
 
     public void changeToMalay(View view){
 
+        Toast.makeText(getApplicationContext(),"Sorry, Malay is not supported yet! > <",Toast.LENGTH_SHORT).show();
+
     }
 
     public void changeToTamil(View view){
+
+        Toast.makeText(getApplicationContext(),"Sorry, Tamil is not supported yet! > <",Toast.LENGTH_SHORT).show();
 
     }
 

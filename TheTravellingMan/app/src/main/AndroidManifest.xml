@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lejit.thetravellingman">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -9,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="locale"
             android:label="@string/title_activity_main">
             <intent-filter>
@@ -24,20 +26,21 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NewsUpdateActivity"
+            android:configChanges="locale"
             android:label="@string/title_activity_news_update"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:configChanges="locale">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.lejit.thetravellingman.MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity_Emergency"
+            android:configChanges="locale"
             android:label="@string/title_activity_main"
             android:parentActivityName=".MainActivity_Emergency"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:configChanges="locale"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".AboutSG"></activity>
     </application>
 
 </manifest>

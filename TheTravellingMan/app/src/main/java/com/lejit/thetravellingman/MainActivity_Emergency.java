@@ -3,6 +3,7 @@ package com.lejit.thetravellingman;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,12 +15,58 @@ import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
+
 public class MainActivity_Emergency extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency);
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+
+                }else if(tabId == R.id.tab_SOS){
+
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
+            @Override
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Toast.makeText(getApplicationContext(),"Already at Emergency contacts!",Toast.LENGTH_SHORT).show();
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     public void call_police(View view) {

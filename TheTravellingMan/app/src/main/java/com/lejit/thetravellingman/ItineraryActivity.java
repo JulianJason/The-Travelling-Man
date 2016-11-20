@@ -1,8 +1,10 @@
 package com.lejit.thetravellingman;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,9 @@ import android.widget.Toast;
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 import com.lejit.thetravellingman.Model.ItineraryRow;
 import com.lejit.thetravellingman.OptimalSolver.getOptimizedSolution;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,6 +59,49 @@ public class ItineraryActivity extends AppCompatActivity {
         mAdapter = new ItineraryRecyclerAdapter(parentItineraryRowList);
         mRecyclerView.setAdapter(mAdapter);
         setInputButtonListener();
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
+            @Override
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Toast.makeText(getApplicationContext(),"Home Page",Toast.LENGTH_SHORT).show();
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void clearList() {

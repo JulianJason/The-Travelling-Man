@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="gainsboro">#DCDCDC</color>
     <color name="silver">#A9A9A9</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#E8E8E8 </color>
+
 </resources>

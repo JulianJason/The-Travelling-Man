@@ -1,8 +1,10 @@
 package com.lejit.thetravellingman;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.lejit.thetravellingman.Model.RssData;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -54,6 +60,49 @@ public class NewsUpdateActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 //        Log.d("ASYN", "ADAPTER SET");
         rssGetter.execute();
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+
+                }
+            }
+        });
+
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
+            @Override
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Toast.makeText(getApplicationContext(),"Already at Updates Page!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private class GetRSS extends AsyncTask<Void, Void, List<RssData>> {
