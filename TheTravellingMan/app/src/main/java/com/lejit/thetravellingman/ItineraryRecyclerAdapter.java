@@ -1,7 +1,6 @@
 package com.lejit.thetravellingman;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,8 +73,8 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
         }
 //        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
         tempHolder.mTo.setText(item.getTo());
-        tempHolder.mCost.setText(item.getCost());
-        tempHolder.mTime.setText(item.getTime());
+        tempHolder.mCost.setText("SGD " + item.getCost());
+        tempHolder.mTime.setText(item.getTime() + " min");
         tempHolder.mMethodOfTransport.setText(item.getMethod());
     }
 
