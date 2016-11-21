@@ -44,9 +44,7 @@
     <string name="rss_intro">Get updated on events and happenings around Singapore</string>
     <string name="rss_subtitle"> Powered by Straits Times</string>
     <string name="embassy_prompt"> test embassy prompt</string>
-    <string-array name="embassy_array">
-        <item>THIS array</item>
-    </string-array>
+
     <string name="attr">WHAT\'S NEAR YOU</string>
     <string name="mbs">Marina Bay Sands</string>
     <string name="dist1">25.0 km</string>
