@@ -23,11 +23,11 @@
     <string name="AttractionsNearby_english">"Attractions Nearby"</string>
     <string name="AttractionsNearby_chinese">附近景点</string>
 
-    <string name="InteractiveGuide_English">Your Interactive Guide To Singapore</string>
-    <string name="InteractiveGuide_Chinese">你的旅行伙伴</string>
+    <string name="InteractiveGuide">Your Interactive Guide To Singapore</string>
 
-    <string name="welcome_message_english">"Hi there!\nWelcome to Singapore!"</string>
-    <string name="welcome_message_chinese">"你好!\n欢迎来到新加坡！"</string>
+
+    <string name="welcome_message">"Hi there!\nWelcome to Singapore!"</string>
+
 
     <string name="English">"English"</string>
     <string name="Chinese">"中文"</string>
