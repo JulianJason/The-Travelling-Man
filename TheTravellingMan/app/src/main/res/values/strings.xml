@@ -15,14 +15,9 @@
     </string-array>
 
     <string name="homePage">Home Page</string>
-
     <string name="itineraryPlanner">"Itinerary Planner"</string>
-
     <string name="AttractionsNearby">"Attractions Nearby"</string>
-
     <string name="InteractiveGuide">Your Interactive Guide To Singapore</string>
-
-
     <string name="welcome_message">"Hi there!\nWelcome to Singapore!"</string>
 
 
@@ -72,7 +67,7 @@
     <string name="sabodef">Definition: An abbreviation of the word sabotage</string>
     <string name="musteat">Must Eats</string>
     <string name="hdb">HDB</string>
-    <string name="hdbdef">Definition: Ann abbreviation for Housing Development Board. These are apartments that can be purchased under the public housing scheme. Majority of Singporeans live in such apartments.</string>
+    <string name="hdbdef">Definition: An abbreviation for Housing Development Board. These are apartments that can be purchased under the public housing scheme. Majority of Singaporeans live in such apartments.</string>
     <string name="chin">Chinese Helicopter</string>
     <string name="chindef">Definition: Used to describe a person who is Chinese educated. The word is dervied from the mispronounciation of the phrase "Chinese Educated"</string>
     <string name="dismiss">Dismiss</string>

@@ -5,4 +5,73 @@
     <string name="homePage">主页</string>
     <string name="itineraryPlanner">行程计划表</string>
     <string name="AttractionsNearby">附近景点</string>
+    <string name="rss_intro">得到关于新加坡事最新消息</string>
+    <string name="attr">附近景点</string>
+    <string name="mbs">滨海湾金沙</string>
+    <string name="dist1">25.0 km</string>
+    <string name="flyer">新加坡飞行物</string>
+    <string name="dist2">15.0 km</string>
+    <string name="vivo">怡丰城</string>
+    <string name="dist3">35.0 km</string>
+    <string name="rws">圣淘沙名胜世界</string>
+    <string name="buddha">佛牙寺龙华院</string>
+    <string name="zoo">新加坡动物园</string>
+
+    <string name="singlishdictionary">新语字典</string>
+    <string name="culture">文化</string>
+    <string name="legi">新加坡立法</string>
+    <string name="history">历史</string>
+    <string name="publictrans">公共交通</string>
+    <string name="ang">Ang Moh</string>
+    <string name="angmoh">意识 ：洋人</string>
+    <string name="blursotong">Blur</string>
+    <string name="blur">Definition: A person who often seems confused</string>
+    <string name="Sotong">Sotong</string>
+    <string name="sotongdef">Definition: An extremely unintelligent person</string>
+    <string name="wah">Wah!</string>
+    <string name="wahdef">An expression of astonishment</string>
+    <string name="lepak">Lepak</string>
+    <string name="lepakdef">Definition: To relax</string>
+    <string name="sabo">Sabo</string>
+    <string name="sabodef">Definition: An abbreviation of the word sabotage</string>
+    <string name="musteat">Must Eats</string>
+    <string name="hdb">HDB</string>
+    <string name="hdbdef">Definition: An abbreviation for Housing Development Board. These are apartments that can be purchased under the public housing scheme. Majority of Singaporeans live in such apartments.</string>
+    <string name="chin">Chinese Helicopter</string>
+    <string name="chindef">Definition: Used to describe a person who is Chinese educated. The word is dervied from the mispronounciation of the phrase "Chinese Educated"</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="culturepara">The religious culture in Singapore is just as diverse as the population. Singaporeans learn about the religious customs and traditions of other population groups early on. On the list of public holidays in Singapore are Christian, Muslim, and Indian holidays, among others. The state is home to ten major religions, including Buddhism, Taoism, Islam, Hinduism, and Christianity. Some people even accept more than one faith.</string>
+    <string name="cultpara">While exploring the culture in Singapore, you will soon find, that many of the most beautiful and fascinating buildings in the state are religious. While some of them are open to the public, it is important that you abide by certain rules before entering a place of worship.</string>
+    <string name="culpara">Visit Singapore\'s culture treasures such as the Armenian Church of Saint Gregory The Illuminator, Sri Mariammman Temple, Sultan Mosque, CentralFire Station and The Art House today.</string>
+    <string name="musteatpara">Singapore is known for its diverse and mouth-watering cuisine. While you\'re here, try some of these Must Eats!</string>
+    <string name="chilicrab">Chilli Crab</string>
+    <string name="laksa">Laksa</string>
+    <string name="dimsum">Dim Sum</string>
+    <string name="carrotcake">Carrot Cake</string>
+    <string name="chickenrice">Chicken Rice</string>
+    <string name="stingray">Sambal Stingray</string>
+    <string name="chew">Chewing Gum</string>
+    <string name="chewpara">Chewing gum is banned in Singapore so leave it at home when packing your bags. Importation of chewing gums into the country, even if it is not for trading, is illegal. The current set of regulations does not have provisions for carrying gum for personal use. Improper disposal of gum and carrying large quantities of the banned product will cost a hefty fine of up to $1000 for first time offenders.</string>
+    <string name="homo">Homosexual Relations</string>
+    <string name="homopara">The legislation on \“Outrages on Decency\” criminalizes same sex relations. This law used to be under the umbrella of \“unnatural sex\” or sex \“against the order of nature.\” Violators of this law can cost the offender up to two years in prison.</string>
+    <string name="vandal">Vandalism</string>
+    <string name="vandalpara">Vandalism is a serious offense in Singapore, with penalties that include not only fines, but also jail, and three to eight strokes of caning. The act constitutes damages done to both public and private properties. Damaging, destroying and stealing public property, as well as drawing, painting, writing, inscribing, and marking any private property without the owner’s consent are considered illegal. Affixing placards, posters, banners, and flags is also prohibited.</string>
+    <string name="drug">Drugs</string>
+    <string name="drugpara">It is important to note that the Singaporean authority does not distinguish between drugs taken back home before you entered the country, and those taken within their borders. The Singapore police is authorized to run a random drug test on both locals and visiting foreigners. Make sure you are cleared of any substance before entering the country, or even better, never consume!</string>
+    <string name="histfound">The Foundation of Singapore</string>
+    <string name="histparasec">Paving Way for Modern Singapore</string>
+    <string name="histpara">Modern Singapore was founded by Sir Stamford Raffles in 1819. Prior to that, Singapore was known as Temasek, which meant \'Sea Town\'. The island was filled with swamps and a small population. Raffles, however, believed that Singapore was strategically located in the Malayan Peninsula. He believed that Singapore would make a good port for the British East India Company. </string>
+    <string name="histpapa">The British surrendered Singapore to the Japanese in 15 February 1942. For the next 3 years, Singapore was under Japanese rule and was renamed Yonan. After the Japanese occupation, the struggle for Singapore\'s Independence became more evident. Many fought for Independence, such as David Marshall and Lee Kuan Yew. Singapore was granted independence in 17th September 1963, under the condition that it joined the Malayan Federation. Singapore soon separated from the Federation and gained independence on 9 August 1965.  </string>
+
+    <string-array name="embassy_array">
+        <item>Select an embassy</item>
+        <item>Australia</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>South Korea</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
+    </string-array>
 </resources>
