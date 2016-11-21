@@ -8,7 +8,6 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,6 +25,8 @@ import com.roughike.bottombar.OnTabSelectListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.lejit.thetravellingman.WordDistance.getWordCorrectionList;
 
 /**
  * Created by USER on 11/20/2016.
@@ -154,7 +155,10 @@ public class ItineraryActivity extends AppCompatActivity {
                     List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
                     attraction_input = new ArrayList<String>();
                     attraction_input.clear();
-                    attraction_input.addAll((splittedData));
+                    for (String s : splittedData) {
+                        attraction_input.add(getWordCorrectionList(s));
+                    }
+//                    attraction_input.addAll((splittedData));
                     result = solutionSolver.findOptimalPath(attraction_input, budget);
 
                 } else {
@@ -177,7 +181,6 @@ public class ItineraryActivity extends AppCompatActivity {
                     itineraryRows.remove(itineraryRows.size() -1);
                 }
                 parentItineraryRowList.addAll(0, itineraryRows);
-                Log.d("FIX", "parent itinerary = " + parentItineraryRowList);
             }
 
             mAdapter.notifyDataSetChanged();
