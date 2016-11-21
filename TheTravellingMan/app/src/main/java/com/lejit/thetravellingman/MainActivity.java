@@ -383,23 +383,13 @@ public class MainActivity extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    if(language.equals("English")){
-                        return getString(R.string.homePage_english);
-                    }else if(language.equals("Chinese")){
-                        return getString(R.string.homePage_chinese);
-                    }
+                    return getString(R.string.homePage);
                 case 1:
-                    if(language.equals("English")){
-                        return getString(R.string.itineraryPlanner_english);
-                    }else if(language.equals("Chinese")){
-                        return getString(R.string.itineraryPlanner_chinese);
-                    }
+                    return getString(R.string.itineraryPlanner);
+
                 case 2:
-                    if(language.equals("English")){
-                        return getString(R.string.AttractionsNearby_english);
-                    }else if(language.equals("Chinese")){
-                        return getString(R.string.AttractionsNearby_chinese);
-                    }
+                    return getString(R.string.AttractionsNearby);
+
             }
             return null;
         }

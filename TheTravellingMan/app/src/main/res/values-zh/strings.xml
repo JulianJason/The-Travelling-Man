@@ -2,4 +2,7 @@
 <resources>
     <string name="InteractiveGuide">你的旅行伙伴</string>
     <string name="welcome_message">"你好!\n欢迎来到新加坡！"</string>
+    <string name="homePage">主页</string>
+    <string name="itineraryPlanner">行程计划表</string>
+    <string name="AttractionsNearby">附近景点</string>
 </resources>

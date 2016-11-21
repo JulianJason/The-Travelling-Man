@@ -14,14 +14,11 @@
         <item>Tamil</item>
     </string-array>
 
-    <string name="homePage_english">Home Page</string>
-    <string name="homePage_chinese">主页</string>
+    <string name="homePage">Home Page</string>
 
-    <string name="itineraryPlanner_english">"Itinerary Planner"</string>
-    <string name="itineraryPlanner_chinese">行程计划表</string>
+    <string name="itineraryPlanner">"Itinerary Planner"</string>
 
-    <string name="AttractionsNearby_english">"Attractions Nearby"</string>
-    <string name="AttractionsNearby_chinese">附近景点</string>
+    <string name="AttractionsNearby">"Attractions Nearby"</string>
 
     <string name="InteractiveGuide">Your Interactive Guide To Singapore</string>
 
