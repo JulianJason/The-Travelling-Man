@@ -26,7 +26,7 @@ class OptimalSolver {
         if (destination_left == 0) {
             if (solution.cost <= budget && solution.time >= time) {
                 solution.cost = budget;
-                solution.route = route + "\n end of route!";
+                solution.route = route;
                 solution.time = time;
                 solution.end = attraction.name;
             }
@@ -38,7 +38,7 @@ class OptimalSolver {
                 if (route.contains(edge.attraction.name) || !DESTINATIONS.contains(edge.attraction.name)) {
                     continue;
                 }
-                if (edge.cost <= budget && (exhaustive || edge.time < bound)) {
+                if (edge.cost <= budget && edge.time < bound) {
                     if (destination_left > 1 && edge.attraction.name.equals(INITIAL_LOCATION)) {
                         continue;
                     }
@@ -47,7 +47,7 @@ class OptimalSolver {
                     }
                     String computerizedRoute = route + "ROUTE"  + edge.attraction.name + "endROUTE COST" + edge.cost + "endCOST TIME" + edge.time + " minendTIME USING" + edge.transport + " endITEM\n";
                     double request_boundary = solve(edge.attraction, budget - edge.cost, time + edge.time, computerizedRoute, destination_left - 1, solution, exhaustive);
-                    if (!exhaustive && bound > request_boundary) {
+                    if (bound > request_boundary) {
                         bound = request_boundary;
                     }
                 }

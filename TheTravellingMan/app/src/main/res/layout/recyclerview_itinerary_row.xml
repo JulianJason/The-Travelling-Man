@@ -64,22 +64,22 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/toResult"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
-            android:layout_marginTop="26dp"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/costValue" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/costValue"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:layout_marginStart="16dp"
             android:layout_alignBaseline="@+id/timeValue"
             android:layout_alignBottom="@+id/timeValue"
             android:layout_toEndOf="@+id/costIcon" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/toResult"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginTop="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/costValue" />
     </RelativeLayout>
 </LinearLayout>

@@ -8,10 +8,10 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
@@ -37,11 +37,10 @@ public class ItineraryActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private ItineraryRecyclerAdapter mAdapter;
-    private CheckBox exhaustiveCheckBox;
     // initiate lists
     public List<String> attraction_input = new ArrayList<String>(); // attraction list inputted by the user
     public List<String> attraction_list = new ArrayList<String>();
-    public List<ItineraryRow> parentItineraryRowList;
+    public List<ItineraryRow> parentItineraryRowList = new ArrayList<ItineraryRow>();;
     // initiate default variables
 
     getOptimizedSolution solutionSolver;
@@ -52,10 +51,10 @@ public class ItineraryActivity extends AppCompatActivity {
         solutionSolver = new getOptimizedSolution();
         clearList();
         loadList();
+        parentItineraryRowList = new ArrayList<ItineraryRow>();
         mRecyclerView = (RecyclerView) findViewById(R.id.itineraryRecyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        parentItineraryRowList = new ArrayList<ItineraryRow>();
         mAdapter = new ItineraryRecyclerAdapter(parentItineraryRowList);
         mRecyclerView.setAdapter(mAdapter);
         setInputButtonListener();
@@ -116,19 +115,20 @@ public class ItineraryActivity extends AppCompatActivity {
         destinationInput.setThreshold(2);
         destinationInput.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
-
+//
     private void setInputButtonListener() {
         Button inputButton = (Button) findViewById(R.id.inputButton);
         destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
         budgetInput = (EditText) findViewById(R.id.budgetInput);
-        exhaustiveCheckBox = (CheckBox) findViewById(R.id.exhaustiveCheckBox);
         inputButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String unprocessedData = destinationInput.getText().toString();
-                double budget = Double.parseDouble(budgetInput.getText().toString());
-                boolean exhaustive = exhaustiveCheckBox.isChecked();
-                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget, exhaustive);
+                double budget = 100;
+                if (!budgetInput.getText().toString().isEmpty()) {
+                    budget = Double.parseDouble(budgetInput.getText().toString());
+                }
+                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget);
                 asyncHelper.execute();
             }
         });
@@ -139,25 +139,24 @@ public class ItineraryActivity extends AppCompatActivity {
         private View rootView;
         private String unprocessedData;
         private double budget;
-        private boolean exhaustive;
-        public RouteAsyncHelper(Context context, String unprocessedData, double budget, boolean exhaustive) {
+        public RouteAsyncHelper(Context context, String unprocessedData, double budget) {
             this.mContext=context;
 //            this.rootView=rootView;
             this.unprocessedData = unprocessedData;
             this.budget = budget;
-            this.exhaustive = exhaustive;
         }
 
         @Override
         protected List<ItineraryRow> doInBackground(Void... voids) {
-            List<ItineraryRow> result = null;
+            List<ItineraryRow> result = new ArrayList<ItineraryRow>();
             try {
                 if (!unprocessedData.isEmpty()) {
                     List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
                     attraction_input = new ArrayList<String>();
                     attraction_input.clear();
                     attraction_input.addAll((splittedData));
-                    result = solutionSolver.findOptimalPath(attraction_input, budget, exhaustive);
+                    result = solutionSolver.findOptimalPath(attraction_input, budget);
+
                 } else {
                     Toast toast = new Toast(getApplicationContext());
                     toast.makeText(getApplicationContext(), "Please input destinations", Toast.LENGTH_SHORT).show();
@@ -170,13 +169,17 @@ public class ItineraryActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<ItineraryRow> itineraryRows) {
             parentItineraryRowList.clear();
-            if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
-                itineraryRows.remove(itineraryRows.size() -1);
-            }
+
+//            Log.d("ASYN", "post execute itinerary row" + itineraryRows.toString());
             if (itineraryRows.isEmpty()) {
             } else {
+                if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
+                    itineraryRows.remove(itineraryRows.size() -1);
+                }
                 parentItineraryRowList.addAll(0, itineraryRows);
+                Log.d("FIX", "parent itinerary = " + parentItineraryRowList);
             }
+
             mAdapter.notifyDataSetChanged();
         }
     }

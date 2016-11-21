@@ -29,13 +29,14 @@ public class getOptimizedSolution {
     private static HashMap<String,Integer> map = DestinationMatrix_HASH.destination_matrix;
     SolutionClass solution;
     private double budget = 100;
-    public List<ItineraryRow> breakdownSolution;
+    public List<ItineraryRow> breakdownSolution = new ArrayList<ItineraryRow>();
 
     public getOptimizedSolution() {
     }
 
-    public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget, boolean exhaustive) {
+    public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget) {
         destinationStatic.clear();
+        breakdownSolution.clear();
         this.budget = budget;
         map = DestinationMatrix_HASH.destination_matrix;
         int size = map.size();
@@ -48,11 +49,10 @@ public class getOptimizedSolution {
         Attraction start = attractions[0];
         OptimalSolver optimalSolver = new OptimalSolver();
         setupReducedHashMap(size);
-        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic, exhaustive);
+        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic, true);
 //        Log.d("ASYN", "rout =" + solution.route);
         breakdownSolution = findBreakDownSolution(solution);
         this.solution = solution;
-        Log.d("Solution", "solution tries = " + solution.tries);
         return breakdownSolution;
     }
 
@@ -110,10 +110,12 @@ public class getOptimizedSolution {
         // add initial solution
         breakdown.add(new ItineraryRow("Start", solution.getEnd(), "" + solution.getTime(), "" + solution.getCost(), "Overall trip cost"));
         if (solution.route != null && !solution.route.isEmpty()) {
+            Log.d("ROUTE", "ROUTE = " + solution.route);
             String[] splitted = solution.route.split("[\\r?\\n]+");
             String regex = "ROUTE(.*?)endROUTE COST(.*?)endCOST TIME(.*?)endTIME USING(.*?)endITEM";
             Pattern pattern = Pattern.compile(regex);
             for (String item : splitted) {
+                Log.d("ROUTE", "item =" + item);
 //            System.out.println("item = " + item);
                 Matcher matcher = pattern.matcher(item);
                 ItineraryRow row = new ItineraryRow();
