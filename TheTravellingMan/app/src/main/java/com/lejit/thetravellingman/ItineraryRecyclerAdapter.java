@@ -66,13 +66,15 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final ItineraryRow item = dataset.get(position);
         final ItineraryRecyclerAdapter.Holder tempHolder = (ItineraryRecyclerAdapter.Holder) holder;
-        if (position != 0) {
-            tempHolder.mFrom.setText(dataset.get(position - 1).getTo());
+        if (position == 0) {
+            tempHolder.mTo.setText(dataset.get(dataset.size() - 1).getTo());
+            tempHolder.mFrom.setText("Estimated total \ncost to ");
         } else {
-            tempHolder.mFrom.setText("Estimated cost to ");
+            tempHolder.mFrom.setText(dataset.get(position - 1).getTo());
+            tempHolder.mTo.setText(item.getTo());
         }
 //        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
-        tempHolder.mTo.setText(item.getTo());
+
         tempHolder.mCost.setText("SGD " + item.getCost());
         tempHolder.mTime.setText(item.getTime() + " min");
         tempHolder.mMethodOfTransport.setText(item.getMethod());

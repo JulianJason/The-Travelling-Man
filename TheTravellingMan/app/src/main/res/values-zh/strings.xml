@@ -65,13 +65,20 @@
 
     <string-array name="embassy_array">
         <item>大使馆</item>
-        <item>澳大利亚</item>
-        <item>法国</item>
-        <item>德国</item>
-        <item>意大利</item>
-        <item>日本</item>
-        <item>韩国</item>
-        <item>英国</item>
-        <item>美国</item>
+        <item>Australia</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>South Korea</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
     </string-array>
+    
+    <string name="country_code">新加坡的国家代码是+65。</string>
+    <string name="choose_embassy">请选择大使馆：</string>
+    <string name="amb">救护车/消防队：995</string>
+    <string name="pol">警察：999</string>
+    <string name="det">细节</string>
+    <string name="call">拨号</string>
 </resources>

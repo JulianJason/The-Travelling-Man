@@ -1,5 +1,7 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
+import android.util.Log;
+
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 import com.lejit.thetravellingman.Model.ItineraryRow;
 
@@ -27,27 +29,27 @@ public class getOptimizedSolution {
     private static HashMap<String,Integer> map = DestinationMatrix_HASH.destination_matrix;
     SolutionClass solution;
     private double budget = 100;
-    public List<ItineraryRow> breakdownSolution;
+    public List<ItineraryRow> breakdownSolution = new ArrayList<ItineraryRow>();
 
     public getOptimizedSolution() {
     }
 
     public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget) {
         destinationStatic.clear();
+        breakdownSolution.clear();
         this.budget = budget;
         map = DestinationMatrix_HASH.destination_matrix;
         int size = map.size();
         initialize(size);
-
+        String initialLocation = destinationArray.get(0);
         for (String destination: destinationArray) {
             destinationStatic.add(destination);
         }
-//        Log.d("ASYN", "DESTIN = " + destinationStatic.toString());
-        Attraction start = attractions[0];
+
+        Attraction start = attractions[matchString(initialLocation, map)];
         OptimalSolver optimalSolver = new OptimalSolver();
         setupReducedHashMap(size);
-        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic);
-//        Log.d("ASYN", "rout =" + solution.route);
+        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic, true);
         breakdownSolution = findBreakDownSolution(solution);
         this.solution = solution;
         return breakdownSolution;
@@ -95,8 +97,7 @@ public class getOptimizedSolution {
     private int matchString(String input, HashMap<String, Integer> map) {
         int entry = map.get(input);
         if (entry < 0) {
-            //do something with value
-            return -1;
+            return -1; // throw error here
         }
         return entry;
     }
@@ -111,17 +112,16 @@ public class getOptimizedSolution {
             String regex = "ROUTE(.*?)endROUTE COST(.*?)endCOST TIME(.*?)endTIME USING(.*?)endITEM";
             Pattern pattern = Pattern.compile(regex);
             for (String item : splitted) {
-//            System.out.println("item = " + item);
                 Matcher matcher = pattern.matcher(item);
                 ItineraryRow row = new ItineraryRow();
                 while (matcher.find()) {
-//                System.out.println("GROUP 0 = " +matcher.group(0));
                     row.setTo(matcher.group(1));
                     row.setCost(matcher.group(2));
                     row.setTime(matcher.group(3));
                     row.setMethod(matcher.group(4));
                 }
                 breakdown.add(row);
+                Log.d("ASYN", row.toString());
             }
         } else {
 //            Log.d("ASYN,","ERROR route is empty"  );

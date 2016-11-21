@@ -105,5 +105,10 @@
         <item>United Kingdom</item>
         <item>United States of America</item>
     </string-array>
-
+<string name="country_code">The country code for Singapore is +65.</string>
+    <string name="choose_embassy">Please select an embassy：</string>
+    <string name="amb">Ambulance/Fire Brigade：995</string>
+    <string name="pol">Police：999</string>
+    <string name="det">Details</string>
+    <string name="call">Call Embassy</string>
 </resources>

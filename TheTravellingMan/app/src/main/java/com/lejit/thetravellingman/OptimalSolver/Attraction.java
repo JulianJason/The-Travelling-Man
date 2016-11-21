@@ -47,7 +47,7 @@ class Attraction {
     @Override
     public String toString() {
         return "Attraction " +
-                "name='" + name;
+                "name='" + this.name;
     }
 
 
