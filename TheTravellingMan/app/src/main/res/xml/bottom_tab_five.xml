@@ -4,7 +4,7 @@
         id="@+id/tab_home"
         icon="@drawable/ic_home_icon"
         title="Home"
-        barColorWhenSelected="#FFE066"/>
+        barColorWhenSelected="#ffd633"/>
     <tab
         id="@+id/tab_information"
         icon="@drawable/ic_information"

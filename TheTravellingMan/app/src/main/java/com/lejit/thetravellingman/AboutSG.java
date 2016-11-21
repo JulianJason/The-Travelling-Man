@@ -2,7 +2,9 @@ package com.lejit.thetravellingman;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -11,6 +13,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.ScrollView;
+import android.widget.Toast;
+
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
 
 
 public class AboutSG extends AppCompatActivity {
@@ -244,6 +251,48 @@ public class AboutSG extends AppCompatActivity {
 //                }
 //            }
 //        });
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+
+                }else if(tabId == R.id.tab_food){
+
+                }else if(tabId == R.id.tab_home){
+
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
+            @Override
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Toast.makeText(getApplicationContext(),"More About Singapore",Toast.LENGTH_SHORT).show();
+                }else if(tabId == R.id.tab_food){
+
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Intent intent = new Intent(getApplicationContext(), NewsUpdateActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
     }
 }
 

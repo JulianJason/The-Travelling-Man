@@ -11,7 +11,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -123,10 +122,7 @@ public class MainActivity extends AppCompatActivity
                     Intent intent = new Intent(getApplicationContext(),AboutSG.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_food){
-                    Fragment fragment = new FoodNearby();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container, fragment);
-                    fragmentTransaction.commit();
+
                 }else if(tabId == R.id.tab_home){
 
                 }else if(tabId == R.id.tab_SOS){
@@ -146,10 +142,7 @@ public class MainActivity extends AppCompatActivity
                     Intent intent = new Intent(getApplicationContext(),AboutSG.class);
                     startActivity(intent);
                 }else if(tabId == R.id.tab_food){
-                    Fragment fragment = new FoodNearby();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container, fragment);
-                    fragmentTransaction.commit();
+
                 }else if(tabId == R.id.tab_home){
                     Toast.makeText(getApplicationContext(),"Home Page",Toast.LENGTH_SHORT).show();
                 }else if(tabId == R.id.tab_SOS){
