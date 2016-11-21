@@ -8,27 +8,27 @@
     android:background="@drawable/singapore_skyline_ting">
 
     <TextView
-    android:text="The country code for Singapore is +65."
+    android:text="@string/country_code"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/textView5" />
 
     <Button
-        android:text="Police: 999"
+        android:text="@string/pol"
         android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:onClick="call_police" />
 
     <Button
-        android:text="Ambulance/Fire Brigade: 995"
+        android:text="@string/amb"
         android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:onClick="call_amb" />
 
     <TextView
-        android:text="Choose an embassy:"
+        android:text="@string/choose_embassy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="see_embassy"
-            android:text="Details"
+            android:text="@string/det"
             android:layout_gravity="start"
             />
 
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="call_embassy"
-            android:text="Call Embassy" />
+            android:text="@string/call" />
 
     </LinearLayout>
 
