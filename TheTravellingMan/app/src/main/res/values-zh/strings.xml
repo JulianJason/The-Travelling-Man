@@ -23,55 +23,55 @@
     <string name="history">历史</string>
     <string name="publictrans">公共交通</string>
     <string name="ang">Ang Moh</string>
-    <string name="angmoh">意识 ：洋人</string>
+    <string name="angmoh">意思: 洋人</string>
     <string name="blursotong">Blur</string>
-    <string name="blur">Definition: A person who often seems confused</string>
+    <string name="blur">意思: 混乱头</string>
     <string name="Sotong">Sotong</string>
-    <string name="sotongdef">Definition: An extremely unintelligent person</string>
+    <string name="sotongdef">意思: 一个非常不聪明的人</string>
     <string name="wah">Wah!</string>
-    <string name="wahdef">An expression of astonishment</string>
+    <string name="wahdef">惊讶的表达</string>
     <string name="lepak">Lepak</string>
-    <string name="lepakdef">Definition: To relax</string>
+    <string name="lepakdef">意思: 放松</string>
     <string name="sabo">Sabo</string>
-    <string name="sabodef">Definition: An abbreviation of the word sabotage</string>
-    <string name="musteat">Must Eats</string>
+    <string name="sabodef">意思: 破坏</string>
+    <string name="musteat">新加坡特食</string>
     <string name="hdb">HDB</string>
-    <string name="hdbdef">Definition: An abbreviation for Housing Development Board. These are apartments that can be purchased under the public housing scheme. Majority of Singaporeans live in such apartments.</string>
+    <string name="hdbdef">意思: 公寓楼</string>
     <string name="chin">Chinese Helicopter</string>
-    <string name="chindef">Definition: Used to describe a person who is Chinese educated. The word is dervied from the mispronounciation of the phrase "Chinese Educated"</string>
-    <string name="dismiss">Dismiss</string>
-    <string name="culturepara">The religious culture in Singapore is just as diverse as the population. Singaporeans learn about the religious customs and traditions of other population groups early on. On the list of public holidays in Singapore are Christian, Muslim, and Indian holidays, among others. The state is home to ten major religions, including Buddhism, Taoism, Islam, Hinduism, and Christianity. Some people even accept more than one faith.</string>
-    <string name="cultpara">While exploring the culture in Singapore, you will soon find, that many of the most beautiful and fascinating buildings in the state are religious. While some of them are open to the public, it is important that you abide by certain rules before entering a place of worship.</string>
-    <string name="culpara">Visit Singapore\'s culture treasures such as the Armenian Church of Saint Gregory The Illuminator, Sri Mariammman Temple, Sultan Mosque, CentralFire Station and The Art House today.</string>
-    <string name="musteatpara">Singapore is known for its diverse and mouth-watering cuisine. While you\'re here, try some of these Must Eats!</string>
-    <string name="chilicrab">Chilli Crab</string>
-    <string name="laksa">Laksa</string>
-    <string name="dimsum">Dim Sum</string>
-    <string name="carrotcake">Carrot Cake</string>
-    <string name="chickenrice">Chicken Rice</string>
-    <string name="stingray">Sambal Stingray</string>
-    <string name="chew">Chewing Gum</string>
-    <string name="chewpara">Chewing gum is banned in Singapore so leave it at home when packing your bags. Importation of chewing gums into the country, even if it is not for trading, is illegal. The current set of regulations does not have provisions for carrying gum for personal use. Improper disposal of gum and carrying large quantities of the banned product will cost a hefty fine of up to $1000 for first time offenders.</string>
-    <string name="homo">Homosexual Relations</string>
-    <string name="homopara">The legislation on \“Outrages on Decency\” criminalizes same sex relations. This law used to be under the umbrella of \“unnatural sex\” or sex \“against the order of nature.\” Violators of this law can cost the offender up to two years in prison.</string>
-    <string name="vandal">Vandalism</string>
-    <string name="vandalpara">Vandalism is a serious offense in Singapore, with penalties that include not only fines, but also jail, and three to eight strokes of caning. The act constitutes damages done to both public and private properties. Damaging, destroying and stealing public property, as well as drawing, painting, writing, inscribing, and marking any private property without the owner’s consent are considered illegal. Affixing placards, posters, banners, and flags is also prohibited.</string>
-    <string name="drug">Drugs</string>
-    <string name="drugpara">It is important to note that the Singaporean authority does not distinguish between drugs taken back home before you entered the country, and those taken within their borders. The Singapore police is authorized to run a random drug test on both locals and visiting foreigners. Make sure you are cleared of any substance before entering the country, or even better, never consume!</string>
-    <string name="histfound">The Foundation of Singapore</string>
-    <string name="histparasec">Paving Way for Modern Singapore</string>
-    <string name="histpara">Modern Singapore was founded by Sir Stamford Raffles in 1819. Prior to that, Singapore was known as Temasek, which meant \'Sea Town\'. The island was filled with swamps and a small population. Raffles, however, believed that Singapore was strategically located in the Malayan Peninsula. He believed that Singapore would make a good port for the British East India Company. </string>
-    <string name="histpapa">The British surrendered Singapore to the Japanese in 15 February 1942. For the next 3 years, Singapore was under Japanese rule and was renamed Yonan. After the Japanese occupation, the struggle for Singapore\'s Independence became more evident. Many fought for Independence, such as David Marshall and Lee Kuan Yew. Singapore was granted independence in 17th September 1963, under the condition that it joined the Malayan Federation. Singapore soon separated from the Federation and gained independence on 9 August 1965.  </string>
+    <string name="chindef"> 意思: 中文教育</string>
+    <string name="dismiss">退出</string>
+    <string name="culturepara">新加坡的宗教文化与人口一样多样化。 新加坡人早期了解其他人口群体的宗教习俗和传统。 新加坡的公众假期名单上有基督教，穆斯林和印度的节日等等。 国家拥有十大宗教，包括佛教，道教，伊斯兰教，印度教和基督教。 有些人甚至接受不止一个信仰。.</string>
+    <string name="cultpara">在探索新加坡的文化时，你会很快发现，许多最美丽和迷人的建筑物在国家是宗教的。 虽然其中一些向公众开放，但在进入宗教场所之前，你必须遵守某些规则。</string>
+    <string name="culpara">参观新加坡的文化珍品，如圣亚历山大教堂的圣格雷戈里的照明，斯里马里亚曼寺，苏丹清真寺，中央消防局和艺术之家今天。</string>
+    <string name="musteatpara">新加坡以其多样化和令人垂涎的美食而闻名。 当你在这里，尝试一些这些必须吃！</string>
+    <string name="chilicrab">辣椒螃蟹</string>
+    <string name="laksa">叻沙</string>
+    <string name="dimsum">点心</string>
+    <string name="carrotcake">胡萝卜蛋糕</string>
+    <string name="chickenrice">鸡饭</string>
+    <string name="stingray">叁峇黄貂鱼</string>
+    <string name="chew">口香糖</string>
+    <string name="chewpara">口香糖在新加坡禁止，所以在包装您的袋子时留在家里。 口香糖进口到国家，即使不是为了交易，是非法的。 目前的一套法规没有规定携带口香糖供个人使用。 不当处理口香糖和携带大量被禁止的产品，对于第一次犯罪者将需要高达1000美元的高额罚款。</string>
+    <string name="homo">同性恋关系</string>
+    <string name="homopara">“关于体面的暴行”的立法将同性关系定为刑事犯罪。 这个法律以前是在“自然的性别”或对自然秩序的性别的保护伞下。“违反这项法律可能使罪犯在监狱里逗留两年。</string>
+    <string name="vandal">故意破坏</string>
+    <string name="vandalpara">破坏行为在新加坡是一种严重的罪行，罚款不仅包括罚款，而且包括监禁，以及三至八次的鞭子。 该行为构成对公共和私人财产的损害。 在没有所有者同意的情况下破坏，破坏和窃取公共财产，以及绘制，绘画，书写，刻印和标记任何私有财产被视为非法。 也禁止贴上标语牌，海报，横幅和旗帜。</string>
+    <string name="drug">非法毒品</string>
+    <string name="drugpara">重要的是要注意，新加坡当局不区分在您进入该国之前回国的药物和在其国境内服用的药物。 新加坡警察被授权对当地人和访问外国人进行随机药物测试。 确保你在进入国家之前没有任何物质，或更好，从不消费！</string>
+    <string name="histfound">新加坡的起源</string>
+    <string name="histparasec">新加坡的现代化</string>
+    <string name="histpara">现代新加坡由斯坦福德莱佛士爵士在1819年创立。在此之前，新加坡被称为淡马锡，这意味着“海城”。 岛上充满了沼泽和一小群人口。 然而，莱佛士认为新加坡位于马来半岛的战略位置。 他相信新加坡将成为英国东印度公司的良好港口。 </string>
+    <string name="histpapa">英国人于1942年2月15日将新加坡交还日本人。在接下来的3年里，新加坡受日本统治，更名为“云南”。 日本占领后，为新加坡独立的斗争变得更加明显。 许多人为独立斗争，如大卫·马歇尔和李光耀。 新加坡在1963年9月17日获得独立，条件是它加入马来亚联邦。 新加坡很快就离开了联邦，并于1965年8月9日获得独立。  </string>
 
     <string-array name="embassy_array">
-        <item>Select an embassy</item>
-        <item>Australia</item>
-        <item>France</item>
-        <item>Germany</item>
-        <item>Italy</item>
-        <item>Japan</item>
-        <item>South Korea</item>
-        <item>United Kingdom</item>
-        <item>United States of America</item>
+        <item>大使馆</item>
+        <item>澳大利亚</item>
+        <item>法国</item>
+        <item>德国</item>
+        <item>意大利</item>
+        <item>日本</item>
+        <item>韩国</item>
+        <item>英国</item>
+        <item>美国</item>
     </string-array>
 </resources>
