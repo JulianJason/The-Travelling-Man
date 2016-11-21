@@ -1,5 +1,7 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
+import android.util.Log;
+
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 import com.lejit.thetravellingman.Model.ItineraryRow;
 
@@ -32,7 +34,7 @@ public class getOptimizedSolution {
     public getOptimizedSolution() {
     }
 
-    public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget) {
+    public List<ItineraryRow> findOptimalPath(List<String> destinationArray, double budget, boolean exhaustive) {
         destinationStatic.clear();
         this.budget = budget;
         map = DestinationMatrix_HASH.destination_matrix;
@@ -46,10 +48,11 @@ public class getOptimizedSolution {
         Attraction start = attractions[0];
         OptimalSolver optimalSolver = new OptimalSolver();
         setupReducedHashMap(size);
-        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic);
+        SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic, exhaustive);
 //        Log.d("ASYN", "rout =" + solution.route);
         breakdownSolution = findBreakDownSolution(solution);
         this.solution = solution;
+        Log.d("Solution", "solution tries = " + solution.tries);
         return breakdownSolution;
     }
 

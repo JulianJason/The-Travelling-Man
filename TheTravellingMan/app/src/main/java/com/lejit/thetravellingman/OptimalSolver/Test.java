@@ -14,6 +14,6 @@ public class Test {
         destination.add("Marina Bay Sands");
         destination.add("Singapore Flyer");
         destination.add("The Singapore Zoo");
-        initialize.findOptimalPath(destination, 100);
+        initialize.findOptimalPath(destination, 100, true);
     }
 }

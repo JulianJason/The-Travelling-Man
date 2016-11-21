@@ -81,6 +81,16 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottom_tab_five" />
+
+        <CheckBox
+            android:text="exhaustive?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="127dp"
+            android:layout_marginTop="118dp"
+            android:id="@+id/exhaustiveCheckBox"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

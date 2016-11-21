@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class ItineraryActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private ItineraryRecyclerAdapter mAdapter;
+    private CheckBox exhaustiveCheckBox;
     // initiate lists
     public List<String> attraction_input = new ArrayList<String>(); // attraction list inputted by the user
     public List<String> attraction_list = new ArrayList<String>();
@@ -114,17 +116,19 @@ public class ItineraryActivity extends AppCompatActivity {
         destinationInput.setThreshold(2);
         destinationInput.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
-//
+
     private void setInputButtonListener() {
         Button inputButton = (Button) findViewById(R.id.inputButton);
         destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
         budgetInput = (EditText) findViewById(R.id.budgetInput);
+        exhaustiveCheckBox = (CheckBox) findViewById(R.id.exhaustiveCheckBox);
         inputButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String unprocessedData = destinationInput.getText().toString();
                 double budget = Double.parseDouble(budgetInput.getText().toString());
-                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget);
+                boolean exhaustive = exhaustiveCheckBox.isChecked();
+                RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget, exhaustive);
                 asyncHelper.execute();
             }
         });
@@ -135,11 +139,13 @@ public class ItineraryActivity extends AppCompatActivity {
         private View rootView;
         private String unprocessedData;
         private double budget;
-        public RouteAsyncHelper(Context context, String unprocessedData, double budget) {
+        private boolean exhaustive;
+        public RouteAsyncHelper(Context context, String unprocessedData, double budget, boolean exhaustive) {
             this.mContext=context;
 //            this.rootView=rootView;
             this.unprocessedData = unprocessedData;
             this.budget = budget;
+            this.exhaustive = exhaustive;
         }
 
         @Override
@@ -151,8 +157,7 @@ public class ItineraryActivity extends AppCompatActivity {
                     attraction_input = new ArrayList<String>();
                     attraction_input.clear();
                     attraction_input.addAll((splittedData));
-                    result = solutionSolver.findOptimalPath(attraction_input, budget);
-
+                    result = solutionSolver.findOptimalPath(attraction_input, budget, exhaustive);
                 } else {
                     Toast toast = new Toast(getApplicationContext());
                     toast.makeText(getApplicationContext(), "Please input destinations", Toast.LENGTH_SHORT).show();
@@ -168,12 +173,10 @@ public class ItineraryActivity extends AppCompatActivity {
             if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
                 itineraryRows.remove(itineraryRows.size() -1);
             }
-//            Log.d("ASYN", "post execute itinerary row" + itineraryRows);
             if (itineraryRows.isEmpty()) {
             } else {
                 parentItineraryRowList.addAll(0, itineraryRows);
             }
-
             mAdapter.notifyDataSetChanged();
         }
     }
