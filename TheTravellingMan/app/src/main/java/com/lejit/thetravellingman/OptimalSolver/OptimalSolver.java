@@ -1,7 +1,5 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
-import android.util.Log;
-
 import java.util.List;
 
 /**
@@ -14,14 +12,15 @@ class OptimalSolver {
 
     SolutionClass initiate(Attraction attraction, double budget, List<String> destinations, boolean exhaustive) {
         DESTINATIONS = destinations;
+//        Log.d("ASYN", DESTINATIONS.toString());
         INITIAL_LOCATION = attraction.name;
         SolutionClass solution = new SolutionClass();
         solution.time = 999999999;
-        Log.d("ASYN", "attraction = " + attraction.toString());
 
-        double time = solve(attraction, budget, 0, "Start", destinations.size(), solution, exhaustive);
+        double time = solve(attraction, budget, 0, "BEGIN", destinations.size(), solution, exhaustive);
         solution.time = time;
         solution.cost = budget - (Math.ceil(solution.cost*100))/100;
+//        Log.d("ROUTE", "solution route =" + solution.route);
         return solution;
     }
 
@@ -32,7 +31,6 @@ class OptimalSolver {
                 solution.cost = budget;
                 solution.route = route;
                 solution.time = time;
-                solution.end = attraction.name;
             }
             return solution.time;
         } else {
@@ -44,17 +42,15 @@ class OptimalSolver {
                 }
                 if (edge.cost <= budget && edge.time < bound) {
                     if (destination_left > 1 && edge.attraction.name.equals(INITIAL_LOCATION)) {
-                        Log.d("ASYN", "Skipping first continue");
                         continue;
                     }
                     if (destination_left == 1 && !edge.attraction.name.equals(INITIAL_LOCATION)) {
-                        Log.d("ASYN", "Skipping second continue");
                         continue;
                     }
                     String computerizedRoute = route + "ROUTE"  + edge.attraction.name + "endROUTE COST" + edge.cost + "endCOST TIME" + edge.time + " minendTIME USING" + edge.transport + " endITEM\n";
+                    solution.end = edge.attraction.name;
                     double request_boundary = solve(edge.attraction, budget - edge.cost, time + edge.time, computerizedRoute, destination_left - 1, solution, exhaustive);
                     if (bound > request_boundary) {
-                        Log.d("ASYN", "bound surpassed");
                         bound = request_boundary;
                     }
                 }

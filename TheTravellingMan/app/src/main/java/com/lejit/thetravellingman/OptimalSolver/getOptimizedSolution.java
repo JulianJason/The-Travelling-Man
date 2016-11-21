@@ -1,5 +1,7 @@
 package com.lejit.thetravellingman.OptimalSolver;
 
+import android.util.Log;
+
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
 import com.lejit.thetravellingman.Model.ItineraryRow;
 
@@ -95,8 +97,7 @@ public class getOptimizedSolution {
     private int matchString(String input, HashMap<String, Integer> map) {
         int entry = map.get(input);
         if (entry < 0) {
-            //do something with value
-            return -1;
+            return -1; // throw error here
         }
         return entry;
     }
@@ -120,6 +121,7 @@ public class getOptimizedSolution {
                     row.setMethod(matcher.group(4));
                 }
                 breakdown.add(row);
+                Log.d("ASYN", row.toString());
             }
         } else {
 //            Log.d("ASYN,","ERROR route is empty"  );

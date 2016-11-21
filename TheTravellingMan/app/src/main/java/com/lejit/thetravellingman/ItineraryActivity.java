@@ -8,6 +8,7 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -174,7 +175,7 @@ public class ItineraryActivity extends AppCompatActivity {
         protected void onPostExecute(List<ItineraryRow> itineraryRows) {
             parentItineraryRowList.clear();
 
-//            Log.d("ASYN", "post execute itinerary row" + itineraryRows.toString());
+            Log.d("ASYN", "post execute itinerary row" + itineraryRows.toString());
             if (itineraryRows.isEmpty()) {
             } else {
                 if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
