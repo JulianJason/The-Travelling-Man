@@ -103,5 +103,17 @@
     <string name="histparasec">Paving Way for Modern Singapore</string>
     <string name="histpara">Modern Singapore was founded by Sir Stamford Raffles in 1819. Prior to that, Singapore was known as Temasek, which meant \'Sea Town\'. The island was filled with swamps and a small population. Raffles, however, believed that Singapore was strategically located in the Malayan Peninsula. He believed that Singapore would make a good port for the British East India Company. </string>
     <string name="histpapa">The British surrendered Singapore to the Japanese in 15 February 1942. For the next 3 years, Singapore was under Japanese rule and was renamed Yonan. After the Japanese occupation, the struggle for Singapore\'s Independence became more evident. Many fought for Independence, such as David Marshall and Lee Kuan Yew. Singapore was granted independence in 17th September 1963, under the condition that it joined the Malayan Federation. Singapore soon separated from the Federation and gained independence on 9 August 1965.  </string>
+    
+    <string-array name="embassy_array">
+        <item>Select an embassy</item>
+        <item>Australia</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>South Korea</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
+    </string-array>
 
 </resources>
