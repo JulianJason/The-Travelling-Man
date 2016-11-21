@@ -27,7 +27,7 @@
         <!--android:id="@+id/SelectLanguage" />-->
 
     <TextView
-        android:text="@string/InteractiveGuide_English"
+        android:text="@string/InteractiveGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_message_english"
+            android:text="@string/welcome_message"
             android:id="@+id/welcomeMessage"/>
 
     </LinearLayout>

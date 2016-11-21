@@ -1,7 +1,7 @@
 package com.lejit.thetravellingman;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
@@ -69,9 +69,13 @@ public class MainActivity extends AppCompatActivity
 
     private CoordinatorLayout coordinatorLayout;
 
+    TextView mSectionView;
+    TextView mWelcomeMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LocaleHelper.onCreate(this, "en");
         setContentView(R.layout.activity_main);
         //Setting urls to name of attractions
         hash.put(R.id.name1,"http://www.yoursingapore.com/see-do-singapore/recreation-leisure/resorts/marina-bay-sands.html");
@@ -152,6 +156,9 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        mSectionView = (TextView) findViewById(R.id.section_label);
+        mWelcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+
     }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -190,76 +197,96 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void changeToEnglish(){
-        language = "English";
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
-
-        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide_English));
-        welcomeMessage.setText(getString(R.string.welcome_message_english));
-
-    }
-
-    public void changeToChinese(){
-        language = "Chinese";
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
-
-        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide_Chinese));
-        welcomeMessage.setText(getString(R.string.welcome_message_chinese));
-    }
-
     public void changeToEnglish(View view){
         language = "English";
+        LocaleHelper.setLocale(this, "en");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        Button englishButton = (Button) findViewById(R.id.English);
-        englishButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
-        Button chineseButton = (Button) findViewById(R.id.Chinese);
-        chineseButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
 
         TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
         TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
-        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide_English));
-        welcomeMessage.setText(getString(R.string.welcome_message_english));
+        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
+        welcomeMessage.setText(getString(R.string.welcome_message));
 
     }
 
     public void changeToChinese(View view){
         language = "Chinese";
+        LocaleHelper.setLocale(this, "zh");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        Button englishButton = (Button) findViewById(R.id.English);
-        Button chineseButton = (Button) findViewById(R.id.Chinese);
-        chineseButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
-        englishButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
 
         TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
         TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
-        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide_Chinese));
-        welcomeMessage.setText(getString(R.string.welcome_message_chinese));
+        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
+        welcomeMessage.setText(getString(R.string.welcome_message));
     }
+
+//    public void changeToEnglish(View view){
+//        language = "English";
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//        mViewPager.setAdapter(mSectionsPagerAdapter);
+//
+//        Button englishButton = (Button) findViewById(R.id.English);
+//        englishButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
+//        Button chineseButton = (Button) findViewById(R.id.Chinese);
+//        chineseButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
+//
+//        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
+//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//
+//        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
+//        welcomeMessage.setText(getString(R.string.welcome_message));
+//
+//    }
+
+//    public void changeToChinese(View view){
+//        language = "Chinese";
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//        mViewPager.setAdapter(mSectionsPagerAdapter);
+//
+//        Button englishButton = (Button) findViewById(R.id.English);
+//        Button chineseButton = (Button) findViewById(R.id.Chinese);
+//        chineseButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
+//        englishButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
+//
+//        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
+//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//
+//        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
+//        welcomeMessage.setText(getString(R.string.welcome_message));
+//    }
 
     public void changeToMalay(View view){
 
         Toast.makeText(getApplicationContext(),"Sorry, Malay is not supported yet! > <",Toast.LENGTH_SHORT).show();
+        updateViews();
 
     }
 
     public void changeToTamil(View view){
 
         Toast.makeText(getApplicationContext(),"Sorry, Tamil is not supported yet! > <",Toast.LENGTH_SHORT).show();
+        updateViews();
 
+    }
+
+    private void updateViews() {
+        // if you want you just call activity to restart itself to redraw all the widgets with the correct locale
+        // however, it will cause a bad look and feel for your users
+        //
+        // this.recreate();
+
+        //or you can just update the visible text on your current layout
+        Resources resources = getResources();
+
+        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
+        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+
+        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
+        welcomeMessage.setText(getString(R.string.welcome_message));
     }
 
     /**

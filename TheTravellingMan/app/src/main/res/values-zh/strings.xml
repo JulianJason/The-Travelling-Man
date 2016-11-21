@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="InteractiveGuide">你的旅行伙伴</string>
+    <string name="welcome_message">"你好!\n欢迎来到新加坡！"</string>
+</resources>
