@@ -21,20 +21,17 @@ import java.util.List;
 public class NewsRecyclerAdapter extends RecyclerView.Adapter {
     private List<RssData> dataset;
     public NewsRecyclerAdapter(List<RssData> data) {
-//        Log.d("ASYN", "" + data);
         if (data != null) {
             this.dataset = data;
-//            Log.d("ASYN", "DATASET =" + this.dataset.toString());
         } else {
-//            Log.d("ASYN", "CLEARED DATASET");
             this.dataset = new ArrayList<RssData>();
         }
     }
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //2
+
         private TextView mItemTitle;
         private TextView mItemDescription;
-        //4
+
         private Holder(View v) {
             super(v);
             mItemTitle = (TextView) v.findViewById(R.id.item_title);
@@ -44,18 +41,12 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter {
             v.setOnClickListener(this);
         }
 
-        //5
+
         @Override
         public void onClick(View v) {
-            Context context = itemView.getContext();
-            Intent linkIntent = new Intent(Intent.ACTION_VIEW);
-//            linkIntent.setData(Uri.parse(link));
-            context.startActivity(linkIntent);
         }
 
         public void bind() {
-//            mItemDate.setText(photo.getHumanDate());
-//            mItemDescription.setText(photo.getExplanation());
         }
     }
 

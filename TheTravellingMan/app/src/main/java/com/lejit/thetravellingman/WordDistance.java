@@ -12,7 +12,7 @@ public class WordDistance {
 
     public static String getWordCorrectionList(String input)    {
 //        String[] languages = {"Abdul Gaffoor Mosque", "ArtScience Museum", "Buddha Tooth Relic Temple", "Bukit Timah Nature Reserve", "Central Sikh Temple", "Changi Prison Chapel and Museum", "Chijmes", "Chinatown Heritage Centre", "East Coast Park", "Esplanade - Theatres on the Bay", "Fort Canning Park", "Gardens by the Bay", "Geylang Serai Market", "Haw Par Villa", "Istana", "Jurong Bird Park", "Katong", "Kranji War Memorial", "Kusu Island", "Lau Pa Sat", "Malay Village", "Marina Bay Sands", "Marina Barrage", "Maxwell Road Hawker Centre", "Merlion Park", "Mount Faber", "NEWater Vsitor Centre", "Old Parliament House", "Pulau Ubin", "Raffles Place", "Resort World Sentosa", "Singapore Art Museum", "Singapore Flyer", "Singapore Night Safari", "Singapore River", "Science Centre Singapore", "Singapore Zoo", "Singapore Mint Coin Gallery", "Sri Srinivasa Perumal Temple", "St Andrew's Cathedral", "St John's Island", "Sungei Buloh Nature Park", "Supreme Court and City Hall", "Temple of 1000 lights", "The Padang", "Treetop Walk at MacRitchie Reservoir", "Underwater World", "Universal Studios Singapore"};
-        String[] languages = {"Marina Bay Sands", "Singapore Flyer",  "VivoCity", "Resorts World Sentosa", "Buddha Tooth Relic Temple", "The Singapore Zoo"};
+        String[] languages = {"Marina Bay Sands", "Singapore Flyer",  "VivoCity", "Resorts World Sentosa", "Buddha Tooth Temple", "The Singapore Zoo"};
         String[] inputList = input.split("\\s+");
         // if there are more than 2 words, there is a high change
         // that someone is looking at something specific, use Matthew's algo
@@ -100,13 +100,13 @@ public class WordDistance {
     }
 
     public static void main(String[] args) {
-        System.out.println(getWordCorrectionList("Sentozza"));
-        System.out.println(getWordCorrectionList("Sentosa"));
-        System.out.println(getWordCorrectionList("Park"));
-        System.out.println(getWordCorrectionList("Budha"));
-        System.out.println(getWordCorrectionList("Relic"));
-        System.out.println(getWordCorrectionList("Mirana"));
-        System.out.println(getWordCorrectionList("Santoso"));
-        System.out.println(getWordCorrectionList("Testbir"));
+//        System.out.println(getWordCorrectionList("Sentozza"));
+//        System.out.println(getWordCorrectionList("Sentosa"));
+//        System.out.println(getWordCorrectionList("Park"));
+//        System.out.println(getWordCorrectionList("Budha"));
+//        System.out.println(getWordCorrectionList("Relic"));
+//        System.out.println(getWordCorrectionList("Mirana"));
+//        System.out.println(getWordCorrectionList("Santoso"));
+//        System.out.println(getWordCorrectionList("Testbir"));
     }
 }

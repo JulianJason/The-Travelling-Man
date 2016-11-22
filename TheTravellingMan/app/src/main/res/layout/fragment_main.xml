@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:layout_below="@+id/section_label"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style="@style/Base.TextAppearance.AppCompat.Body1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -48,6 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_message"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textSize="5pt"
             android:id="@+id/welcomeMessage"/>
 
     </LinearLayout>
@@ -80,7 +83,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/English"
                 android:layout_weight="1"
-                android:onClick="changeToEnglish"/>
+                android:onClick="changeToEnglish"
+                android:textSize="5pt"/>
 
             <Button
                 android:text="@string/Chinese"
@@ -88,7 +92,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/Chinese"
                 android:layout_weight="1"
-                android:onClick="changeToChinese"/>
+                android:onClick="changeToChinese"
+                android:textSize="5pt"/>
 
             <Button
                 android:text="@string/bahasa_melayu"
@@ -96,7 +101,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/malay"
                 android:layout_weight="1"
-                android:onClick="changeToMalay"/>
+                android:onClick="changeToMalay"
+                android:textSize="5pt"/>
 
             <Button
                 android:text="@string/Tamil"
@@ -104,7 +110,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tamil"
                 android:layout_weight="1"
-                android:onClick="changeToTamil"/>
+                android:onClick="changeToTamil"
+                android:textSize="5pt"/>
 
         </TableRow>
 
@@ -116,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="The Travelling man"
+        android:textAppearance="@android:style/TextAppearance.Holo.Widget.ActionBar.Title"
         android:layout_marginTop="149dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

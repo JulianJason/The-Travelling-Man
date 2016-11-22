@@ -8,7 +8,6 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -46,7 +45,13 @@ public class ItineraryActivity extends AppCompatActivity {
     getOptimizedSolution solutionSolver;
     @Override
     protected void onDestroy() {
+
         super.onDestroy();
+        if (mRecyclerView != null) {
+            mRecyclerView.setLayoutManager(null);
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
     }
     
     @Override
@@ -120,7 +125,7 @@ public class ItineraryActivity extends AppCompatActivity {
         destinationInput.setThreshold(2);
         destinationInput.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
-//
+
     private void setInputButtonListener() {
         Button inputButton = (Button) findViewById(R.id.inputButton);
         destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
@@ -133,11 +138,18 @@ public class ItineraryActivity extends AppCompatActivity {
                 if (!budgetInput.getText().toString().isEmpty()) {
                     budget = Double.parseDouble(budgetInput.getText().toString());
                 }
+                List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
+                if (splittedData.size() < 2) {
+                    Toast.makeText(getApplicationContext(), "please input more than 1 destination",
+                            Toast.LENGTH_LONG).show();
+                }
                 RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget);
                 asyncHelper.execute();
             }
         });
     }
+
+
 
     private class RouteAsyncHelper extends AsyncTask<Void, Void, List<ItineraryRow>> {
         private Context mContext;
@@ -146,7 +158,6 @@ public class ItineraryActivity extends AppCompatActivity {
         private double budget;
         public RouteAsyncHelper(Context context, String unprocessedData, double budget) {
             this.mContext=context;
-//            this.rootView=rootView;
             this.unprocessedData = unprocessedData;
             this.budget = budget;
         }
@@ -157,17 +168,15 @@ public class ItineraryActivity extends AppCompatActivity {
             try {
                 if (!unprocessedData.isEmpty()) {
                     List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
-                    attraction_input = new ArrayList<String>();
-                    attraction_input.clear();
-                    for (String s : splittedData) {
-                        attraction_input.add(getWordCorrectionList(s));
-                    }
+                    if (splittedData.size() > 1) {
+                        attraction_input = new ArrayList<String>();
+                        attraction_input.clear();
+                        for (String s : splittedData) {
+                            attraction_input.add(getWordCorrectionList(s));
+                        }
 //                    attraction_input.addAll((splittedData));
-                    result = solutionSolver.findOptimalPath(attraction_input, budget);
-
-                } else {
-                    Toast toast = new Toast(getApplicationContext());
-                    toast.makeText(getApplicationContext(), "Please input destinations", Toast.LENGTH_SHORT).show();
+                        result = solutionSolver.findOptimalPath(attraction_input, budget);
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -178,7 +187,6 @@ public class ItineraryActivity extends AppCompatActivity {
         protected void onPostExecute(List<ItineraryRow> itineraryRows) {
             parentItineraryRowList.clear();
 
-            Log.d("ASYN", "post execute itinerary row" + itineraryRows.toString());
             if (itineraryRows.isEmpty()) {
             } else {
                 if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
@@ -186,9 +194,9 @@ public class ItineraryActivity extends AppCompatActivity {
                 }
                 parentItineraryRowList.addAll(0, itineraryRows);
             }
-
             mAdapter.notifyDataSetChanged();
         }
     }
+
 }
 

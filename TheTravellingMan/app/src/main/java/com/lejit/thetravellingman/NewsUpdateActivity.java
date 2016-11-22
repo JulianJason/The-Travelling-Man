@@ -8,7 +8,6 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,17 +42,22 @@ public class NewsUpdateActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mRecyclerView != null) {
+            mRecyclerView.setLayoutManager(null);
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_update);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         GetRSS rssGetter = new GetRSS(getApplicationContext(), viewGroup);
         // setup recycler view
         parentRssFeed = new ArrayList<RssData>();
@@ -62,7 +66,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mAdapter = new NewsRecyclerAdapter(parentRssFeed);
         mRecyclerView.setAdapter(mAdapter);
-//        Log.d("ASYN", "ADAPTER SET");
         rssGetter.execute();
 
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
@@ -120,7 +123,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
         @Override
         protected List<RssData> doInBackground(Void... voids) {
             List<RssData> result = null;
-//            Log.d("ASYN", "DOING BACKGROUND SET");
             try {
                 String feed = getRssFeed();
                 result = parse(feed);
@@ -129,7 +131,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-//            Log.d("ASYN", "ReSUlT IS =" + result);
             return result;
         }
         private List<RssData> parse(String rssFeed) throws XmlPullParserException, IOException {
@@ -150,7 +151,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 URL url = new URL("http://www.straitstimes.com/news/singapore/rss.xml");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 in = conn.getInputStream();
-//                Log.d("ASYN", "OPENING CONNECTION" + in);
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
 
@@ -165,7 +165,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             } finally {
                 if (in != null) {
                     try {
-//                        Log.i("ASYN", "CLOSING CONNECTION" + in);
                         in.close();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -220,7 +219,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                     continue;
                 }
                 String name = parser.getName();
-//                Log.d("ASYN", "parset getName = " + name);
                 if (name.equals("title")) {
                     rssItem.setTitle(readTitle(parser));
                 } else if (name.equals("link")) {
@@ -232,7 +230,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 }
             }
 
-//            Log.d("ASYN,", "readItem result = " + rssItem);
             return rssItem;
         }
 
@@ -242,7 +239,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.START_TAG, null, "title");
             String title = readText(parser);
             parser.require(XmlPullParser.END_TAG, null, "title");
-//            Log.d("ASYN,", "readTitle result = " + title);
             return title;
         }
 
@@ -251,7 +247,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.START_TAG, null, "link");
             String link = readText(parser);
             parser.require(XmlPullParser.END_TAG, null, "link");
-//            Log.d("ASYN,", "readLink result = " + link);
             return link;
         }
 
@@ -262,7 +257,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.END_TAG, null, "description");
             description = Html.fromHtml(description).toString();
             description = ellipsis(description, 300);
-//            Log.d("ASYN,", "readDescription result = " + description);
             return description;
         }
 
@@ -274,8 +268,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 result = parser.getText();
                 parser.nextTag();
             }
-
-//            Log.d("ASYN,", "readText result = " + result);
             return result;
         }
         private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {

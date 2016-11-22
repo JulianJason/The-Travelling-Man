@@ -81,4 +81,6 @@
     <string name="pol">警察：999</string>
     <string name="det">细节</string>
     <string name="call">拨号</string>
+    <string name="aboutSGHeader">新加坡资料</string>
+    <string name="aboutSGtapToLearn">点击标签来看更多</string>
 </resources>
