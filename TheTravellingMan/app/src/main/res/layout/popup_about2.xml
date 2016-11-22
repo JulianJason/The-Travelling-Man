@@ -40,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cultpara"
+            android:textColor="@color/brown"
             android:textSize="15sp"/>
 
         <RelativeLayout
@@ -53,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/culpara"
+            android:textColor="@color/brown"
             android:textSize="15sp"/>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -68,7 +70,8 @@
             android:text="@string/dismiss"
             android:textSize="20sp"
             android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/closeButton1"/>
+            android:id="@+id/closeButton1"
+            android:background="@color/darkergrey"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
