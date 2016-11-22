@@ -140,6 +140,11 @@ public class ItineraryActivity extends AppCompatActivity {
                 if (!budgetInput.getText().toString().isEmpty()) {
                     budget = Double.parseDouble(budgetInput.getText().toString());
                 }
+                List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
+                if (splittedData.size() < 2) {
+                    Toast.makeText(getApplicationContext(), "please input more than 1 destination",
+                            Toast.LENGTH_LONG).show();
+                }
                 RouteAsyncHelper asyncHelper = new RouteAsyncHelper(getApplicationContext(), unprocessedData, budget);
                 asyncHelper.execute();
             }
@@ -165,17 +170,15 @@ public class ItineraryActivity extends AppCompatActivity {
             try {
                 if (!unprocessedData.isEmpty()) {
                     List<String> splittedData = Arrays.asList(unprocessedData.split(",\\s?"));
-                    attraction_input = new ArrayList<String>();
-                    attraction_input.clear();
-                    for (String s : splittedData) {
-                        attraction_input.add(getWordCorrectionList(s));
-                    }
+                    if (splittedData.size() > 1) {
+                        attraction_input = new ArrayList<String>();
+                        attraction_input.clear();
+                        for (String s : splittedData) {
+                            attraction_input.add(getWordCorrectionList(s));
+                        }
 //                    attraction_input.addAll((splittedData));
-                    result = solutionSolver.findOptimalPath(attraction_input, budget);
-
-                } else {
-                    Toast toast = new Toast(getApplicationContext());
-                    toast.makeText(getApplicationContext(), "Please input destinations", Toast.LENGTH_SHORT).show();
+                        result = solutionSolver.findOptimalPath(attraction_input, budget);
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();

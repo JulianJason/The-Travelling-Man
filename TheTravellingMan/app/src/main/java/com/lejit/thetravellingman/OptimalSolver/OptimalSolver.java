@@ -18,7 +18,7 @@ class OptimalSolver {
 
         double time = solve(attraction, budget, 0, "BEGIN", destinations.size(), solution, exhaustive);
         solution.time = time;
-        solution.cost = budget - (Math.ceil(solution.cost*100))/100;
+        solution.cost = (Math.ceil(budget*100 - solution.cost*100))/100;
         return solution;
     }
 
@@ -48,7 +48,7 @@ class OptimalSolver {
                     String computerizedRoute = route + "ROUTE"  + edge.attraction.name + "endROUTE COST" + edge.cost + "endCOST TIME" + edge.time + " minendTIME USING" + edge.transport + " endITEM\n";
                     solution.end = edge.attraction.name;
                     double request_boundary = solve(edge.attraction, budget - edge.cost, time + edge.time, computerizedRoute, destination_left - 1, solution, exhaustive);
-                    if (bound > request_boundary) {
+                    if (!exhaustive && bound > request_boundary) {
                         bound = request_boundary;
                     }
                 }
