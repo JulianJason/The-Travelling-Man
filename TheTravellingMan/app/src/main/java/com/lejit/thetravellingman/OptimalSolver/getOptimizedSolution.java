@@ -108,7 +108,7 @@ public class getOptimizedSolution {
 
     public List<ItineraryRow> findBreakDownSolution(SolutionClass solution) {
         List<ItineraryRow> breakdown = new ArrayList<ItineraryRow>();
-
+//        Log.d("TEST", solution.route);
         // add initial solution
         breakdown.add(new ItineraryRow("Start", solution.getEnd(), "" + solution.getTime(), "" + solution.getCost(), "Overall trip cost"));
         if (solution.route != null && !solution.route.isEmpty()) {
