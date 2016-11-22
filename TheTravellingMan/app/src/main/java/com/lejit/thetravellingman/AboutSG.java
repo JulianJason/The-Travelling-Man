@@ -37,7 +37,10 @@ public class AboutSG extends AppCompatActivity {
     private PopupWindow window4;
     private PopupWindow window5;
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
