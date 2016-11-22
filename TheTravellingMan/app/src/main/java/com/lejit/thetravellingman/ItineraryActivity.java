@@ -47,6 +47,11 @@ public class ItineraryActivity extends AppCompatActivity {
 
     getOptimizedSolution solutionSolver;
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+    
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary);
