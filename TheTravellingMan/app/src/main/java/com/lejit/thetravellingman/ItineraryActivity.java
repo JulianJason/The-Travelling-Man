@@ -29,9 +29,7 @@ import java.util.List;
 
 import static com.lejit.thetravellingman.WordDistance.getWordCorrectionList;
 
-/**
- * Created by USER on 11/20/2016.
- */
+//change to ItineraryPlanner: fragment instead of activity
 
 public class ItineraryActivity extends AppCompatActivity {
     private MultiAutoCompleteTextView destinationInput;

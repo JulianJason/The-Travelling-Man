@@ -76,7 +76,7 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
 //        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
 
         tempHolder.mCost.setText("SGD " + item.getCost());
-        tempHolder.mTime.setText(item.getTime() + " min");
+        tempHolder.mTime.setText(item.getTime());
         tempHolder.mMethodOfTransport.setText(item.getMethod());
     }
 

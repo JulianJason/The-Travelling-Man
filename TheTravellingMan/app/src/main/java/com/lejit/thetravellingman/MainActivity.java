@@ -47,12 +47,13 @@ public class MainActivity extends AppCompatActivity
     public static String language = "English";
 
     List<Address> matchedList;
-    List<Integer> buttonList = Arrays.asList(R.id.first,R.id.map1,R.id.second,R.id.map2);
+    List<Integer> buttonList = Arrays.asList(R.id.clear1,R.id.first,R.id.map1,R.id.clear2,R.id.second,R.id.map2);
     List<Integer> webviewList = Arrays.asList(R.id.name1,R.id.r1,R.id.name2,R.id.r2,R.id.name3,R.id.r3,R.id.name4,R.id.r4,R.id.name5,R.id.r5,R.id.name6,R.id.r6);
     HashMap<Integer,String> hash = new HashMap<>();
     EditText LocationString;
     RelativeLayout rel;
     String attr;
+    EditText text;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -341,6 +342,7 @@ public class MainActivity extends AppCompatActivity
 //                    startActivity(intent);
 //                }
 //            });
+            /*
             View.OnClickListener tempListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -350,6 +352,7 @@ public class MainActivity extends AppCompatActivity
             };
             Button tempButton = (Button) rootView.findViewById(R.id.tempButton);
             tempButton.setOnClickListener(tempListener);
+            */
             return rootView;
         }
     }
@@ -458,5 +461,15 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         });
+    }
+    //clear text field
+    public void clear(View v) {
+        for(int i=0;i<buttonList.size();i++){
+            if(buttonList.get(i)==v.getId()){
+                text = (EditText)findViewById(buttonList.get(i+1));
+                text.setText("");
+            }
+        }
+
     }
 }

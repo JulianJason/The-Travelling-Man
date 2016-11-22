@@ -15,7 +15,8 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="locale"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
