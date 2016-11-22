@@ -65,13 +65,15 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
         if (position == 0) {
             tempHolder.mTo.setText(dataset.get(dataset.size() - 1).getTo());
             tempHolder.mFrom.setText("Estimated total \ncost to ");
+            tempHolder.mTime.setText(item.getTime()+" min");
         } else {
             tempHolder.mFrom.setText(dataset.get(position - 1).getTo());
             tempHolder.mTo.setText(item.getTo());
+            tempHolder.mTime.setText(item.getTime());
         }
 
         tempHolder.mCost.setText("SGD " + item.getCost());
-        tempHolder.mTime.setText(item.getTime());
+        
         tempHolder.mMethodOfTransport.setText(item.getMethod());
     }
 

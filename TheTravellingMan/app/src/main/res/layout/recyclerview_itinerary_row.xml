@@ -14,14 +14,14 @@
             android:layout_height="40dp"
             app:srcCompat="@drawable/time_icon"
             android:id="@+id/timeIcon"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="32dp"
             android:layout_below="@+id/fromResult"
             android:layout_alignParentStart="true"
             android:layout_marginStart="12dp" />
 
         <TextView
             android:text="TextView"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:id="@+id/timeValue"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -35,10 +35,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/methodOfTransportText"
-            android:layout_alignBaseline="@+id/costValue"
             android:layout_alignBottom="@+id/costValue"
+
             android:layout_toEndOf="@+id/costValue"
             android:layout_marginStart="36dp"
+
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <ImageView
@@ -52,12 +53,13 @@
 
         <TextView
             android:text="TextView"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:id="@+id/fromResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_alignBottom="@+id/toResult"
+            android:layout_alignTop="@+id/toResult"
             android:layout_alignStart="@+id/timeIcon" />
 
         <TextView
@@ -67,19 +69,31 @@
             android:id="@+id/costValue"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="11dp"
             android:layout_alignBaseline="@+id/timeValue"
             android:layout_alignBottom="@+id/timeValue"
             android:layout_toEndOf="@+id/costIcon" />
 
         <TextView
             android:text="TextView"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/toResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
             android:layout_marginTop="29dp"
+            android:layout_marginBottom="11dp"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/costValue" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="300dp"
+            app:srcCompat="@drawable/location"
+            android:layout_alignTop="@+id/toResult"
+
+            android:id="@+id/imageView"
+            android:onClick="map"/>
     </RelativeLayout>
 </LinearLayout>
