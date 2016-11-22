@@ -68,6 +68,11 @@ public class MainActivity_Emergency extends AppCompatActivity {
             }
         });
     }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     public void call_police(View view) {
         Intent phone = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + 96564650));
