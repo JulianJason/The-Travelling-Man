@@ -18,22 +18,20 @@ import java.util.List;
 public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
     private List<ItineraryRow> dataset;
     public ItineraryRecyclerAdapter(List<ItineraryRow> data) {
-//        Log.d("ASYN","INITIATED!");
         if (data != null) {
             this.dataset = data;
-//            Log.d("DATA", "datasize" + dataset.size());
         } else {
             this.dataset = new ArrayList<ItineraryRow>();
         }
     }
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //2
+
         private TextView mFrom;
         private TextView mTo;
         private TextView mCost;
         private TextView mTime;
         private TextView mMethodOfTransport;
-        //4
+
         private Holder(View v) {
             super(v);
             mFrom = (TextView) v.findViewById(R.id.fromResult);
@@ -46,12 +44,10 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
             v.setOnClickListener(this);
         }
 
-        //5
+
         @Override
         public void onClick(View v) {
-        }
-
-        public void bind() {
+            // do nothing
         }
     }
 
@@ -73,7 +69,6 @@ public class ItineraryRecyclerAdapter extends RecyclerView.Adapter {
             tempHolder.mFrom.setText(dataset.get(position - 1).getTo());
             tempHolder.mTo.setText(item.getTo());
         }
-//        Log.d("DATA", "ITEM " + position + "to" + item.getTo());
 
         tempHolder.mCost.setText("SGD " + item.getCost());
         tempHolder.mTime.setText(item.getTime() + " min");

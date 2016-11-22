@@ -160,14 +160,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
     @Override
     protected void onDestroy() {
@@ -227,40 +219,8 @@ public class MainActivity extends AppCompatActivity
         welcomeMessage.setText(getString(R.string.welcome_message));
     }
 
-//    public void changeToEnglish(View view){
-//        language = "English";
-//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-//        mViewPager.setAdapter(mSectionsPagerAdapter);
-//
-//        Button englishButton = (Button) findViewById(R.id.English);
-//        englishButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
-//        Button chineseButton = (Button) findViewById(R.id.Chinese);
-//        chineseButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
-//
-//        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
-//
-//        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
-//        welcomeMessage.setText(getString(R.string.welcome_message));
-//
-//    }
 
-//    public void changeToChinese(View view){
-//        language = "Chinese";
-//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-//        mViewPager.setAdapter(mSectionsPagerAdapter);
-//
-//        Button englishButton = (Button) findViewById(R.id.English);
-//        Button chineseButton = (Button) findViewById(R.id.Chinese);
-//        chineseButton.setBackgroundColor(Color.rgb(192,192,192)); // Silver
-//        englishButton.setBackgroundColor(Color.rgb(220,220,220)); // gainsboro
-//
-//        TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
-//
-//        interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
-//        welcomeMessage.setText(getString(R.string.welcome_message));
-//    }
+
 
     public void changeToMalay(View view){
 

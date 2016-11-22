@@ -8,7 +8,6 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -122,7 +121,7 @@ public class ItineraryActivity extends AppCompatActivity {
         destinationInput.setThreshold(2);
         destinationInput.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
-//
+
     private void setInputButtonListener() {
         Button inputButton = (Button) findViewById(R.id.inputButton);
         destinationInput = (MultiAutoCompleteTextView) findViewById(R.id.attractionInputTextView);
@@ -150,7 +149,6 @@ public class ItineraryActivity extends AppCompatActivity {
         private double budget;
         public RouteAsyncHelper(Context context, String unprocessedData, double budget) {
             this.mContext=context;
-//            this.rootView=rootView;
             this.unprocessedData = unprocessedData;
             this.budget = budget;
         }
@@ -182,7 +180,6 @@ public class ItineraryActivity extends AppCompatActivity {
         protected void onPostExecute(List<ItineraryRow> itineraryRows) {
             parentItineraryRowList.clear();
 
-            Log.d("ASYN", "post execute itinerary row" + itineraryRows.toString());
             if (itineraryRows.isEmpty()) {
             } else {
                 if (itineraryRows.get(itineraryRows.size() - 1).getCost() == null || itineraryRows.get(itineraryRows.size() - 1).getTime() == null) {
@@ -194,5 +191,6 @@ public class ItineraryActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
     }
+
 }
 

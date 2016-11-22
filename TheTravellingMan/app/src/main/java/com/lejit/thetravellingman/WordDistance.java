@@ -100,13 +100,13 @@ public class WordDistance {
     }
 
     public static void main(String[] args) {
-        System.out.println(getWordCorrectionList("Sentozza"));
-        System.out.println(getWordCorrectionList("Sentosa"));
-        System.out.println(getWordCorrectionList("Park"));
-        System.out.println(getWordCorrectionList("Budha"));
-        System.out.println(getWordCorrectionList("Relic"));
-        System.out.println(getWordCorrectionList("Mirana"));
-        System.out.println(getWordCorrectionList("Santoso"));
-        System.out.println(getWordCorrectionList("Testbir"));
+//        System.out.println(getWordCorrectionList("Sentozza"));
+//        System.out.println(getWordCorrectionList("Sentosa"));
+//        System.out.println(getWordCorrectionList("Park"));
+//        System.out.println(getWordCorrectionList("Budha"));
+//        System.out.println(getWordCorrectionList("Relic"));
+//        System.out.println(getWordCorrectionList("Mirana"));
+//        System.out.println(getWordCorrectionList("Santoso"));
+//        System.out.println(getWordCorrectionList("Testbir"));
     }
 }
