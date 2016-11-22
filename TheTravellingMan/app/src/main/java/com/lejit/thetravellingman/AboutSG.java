@@ -53,6 +53,8 @@ public class AboutSG extends AppCompatActivity {
         // Get the activity
         mActivity = AboutSG.this;
 
+        Toast.makeText(this,getResources().getString(R.string.aboutSGtapToLearn),Toast.LENGTH_SHORT).show();
+
         // Get the widgets reference from XML layout
         mRelativeLayout = (ScrollView) findViewById(R.id.scrollDict);
         mButton = (Button) findViewById(R.id.dictbut);

@@ -111,4 +111,7 @@
     <string name="pol">Police：999</string>
     <string name="det">Details</string>
     <string name="call">Call Embassy</string>
+
+    <string name="aboutSGHeader">Learn More about Singapore</string>
+    <string name="aboutSGtapToLearn">Tap on any of the labels to learn more!</string>
 </resources>
