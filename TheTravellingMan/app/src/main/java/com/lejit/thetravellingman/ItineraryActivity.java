@@ -47,7 +47,13 @@ public class ItineraryActivity extends AppCompatActivity {
     getOptimizedSolution solutionSolver;
     @Override
     protected void onDestroy() {
+
         super.onDestroy();
+        if (mRecyclerView != null) {
+            mRecyclerView.setLayoutManager(null);
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
     }
     
     @Override
@@ -187,7 +193,6 @@ public class ItineraryActivity extends AppCompatActivity {
                 }
                 parentItineraryRowList.addAll(0, itineraryRows);
             }
-
             mAdapter.notifyDataSetChanged();
         }
     }

@@ -43,6 +43,11 @@ public class NewsUpdateActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mRecyclerView != null) {
+            mRecyclerView.setLayoutManager(null);
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
