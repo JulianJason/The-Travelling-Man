@@ -36,26 +36,6 @@
         style="@style/Base.TextAppearance.AppCompat.Body1"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top|center"
-        android:layout_marginBottom="18dp"
-        android:layout_alignBottom="@+id/section_label"
-        android:background="@drawable/ic_speech_bubble9"
-        android:layout_toEndOf="@+id/section_label">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_message"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:textSize="5pt"
-            android:id="@+id/welcomeMessage"/>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,6 +49,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Select_Language_English"
             android:layout_gravity="center"
+            android:textSize="8pt"
             android:id="@+id/selectLanguage"
             />
 
@@ -84,7 +65,7 @@
                 android:id="@+id/English"
                 android:layout_weight="1"
                 android:onClick="changeToEnglish"
-                android:textSize="5pt"/>
+                android:textSize="6pt"/>
 
             <Button
                 android:text="@string/Chinese"
@@ -93,7 +74,7 @@
                 android:id="@+id/Chinese"
                 android:layout_weight="1"
                 android:onClick="changeToChinese"
-                android:textSize="5pt"/>
+                android:textSize="6pt"/>
 
             <Button
                 android:text="@string/bahasa_melayu"
@@ -102,7 +83,7 @@
                 android:id="@+id/malay"
                 android:layout_weight="1"
                 android:onClick="changeToMalay"
-                android:textSize="5pt"/>
+                android:textSize="6pt"/>
 
             <Button
                 android:text="@string/Tamil"
@@ -111,7 +92,7 @@
                 android:id="@+id/tamil"
                 android:layout_weight="1"
                 android:onClick="changeToTamil"
-                android:textSize="5pt"/>
+                android:textSize="6pt"/>
 
         </TableRow>
 
@@ -124,18 +105,31 @@
         android:layout_height="wrap_content"
         android:text="The Travelling man"
         android:textAppearance="@android:style/TextAppearance.Holo.Widget.ActionBar.Title"
+        android:textSize="15pt"
         android:layout_marginTop="149dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_toStartOf="@+id/section_label"
-        android:layout_marginTop="50dp"
-        android:id="@+id/tempButton" />
+        android:orientation="vertical"
+        android:gravity="top|center"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/ic_speech_bubble9"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_message"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textSize="7pt"
+            android:id="@+id/welcomeMessage"/>
+
+    </LinearLayout>
 
     <!--<RelativeLayout-->
         <!--android:orientation="horizontal"-->

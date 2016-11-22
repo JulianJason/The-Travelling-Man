@@ -114,4 +114,6 @@
 
     <string name="aboutSGHeader">Learn More about Singapore</string>
     <string name="aboutSGtapToLearn">Tap on any of the labels to learn more!</string>
+    <string name="ImportantContacts">Important information for any Tourists</string>
+    <string name="appearBelow">Embassy details will appear below</string>
 </resources>
