@@ -27,11 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ang"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/angmoh" />
+            android:text="@string/angmoh"
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,11 +45,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/blursotong"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/blur" />
+            android:text="@string/blur"
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,11 +63,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Sotong"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sotongdef" />
+            android:text="@string/sotongdef"
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,11 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/wah"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wahdef" />
+            android:text="@string/wahdef" 
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,11 +99,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lepak"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lepakdef" />
+            android:text="@string/lepakdef" 
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,11 +117,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sabo"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="@color/brown"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sabodef" />
+            android:text="@string/sabodef" 
+            android:textColor="@color/brown"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -124,11 +136,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hdb"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="@color/brown"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hdbdef" />
+            android:text="@string/hdbdef"
+            android:textColor="@color/brown"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,18 +154,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chin"
+            android:textColor="@color/brown"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/chindef" />
+            android:text="@string/chindef" 
+            android:textColor="@color/brown"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dismiss"
             android:textSize="20sp"
             android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/closeButton"/>
+            android:id="@+id/closeButton"
+            android:background="@color/darkergrey"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
