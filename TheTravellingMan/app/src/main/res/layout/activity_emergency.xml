@@ -8,73 +8,94 @@
     android:background="@drawable/singapore_skyline_ting">
 
     <TextView
-    android:text="@string/country_code"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/textView5" />
-
-    <Button
-        android:text="@string/pol"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:onClick="call_police" />
-
-    <Button
-        android:text="@string/amb"
-        android:layout_width="254dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:onClick="call_amb" />
-
-    <TextView
-        android:text="@string/choose_embassy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:id="@+id/text_embassy"/>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:prompt="@string/embassy_prompt"
-        android:entries="@array/embassy_array"
-        />
-    <LinearLayout
+        android:text="@string/ImportantContacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:id="@+id/EmergencyPageHeader"
+        android:textAppearance="@android:style/TextAppearance.Holo.Widget.ActionBar.Title"
+        android:textAlignment="center"/>
+    <TextView
+        android:text="@string/country_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textAlignment="center" />
 
-        <Button
-            android:layout_width="wrap_content"
+    <Button
+            android:text="@string/pol"
+            android:layout_width="254dp"
             android:layout_height="wrap_content"
-            android:onClick="see_embassy"
-            android:text="@string/det"
-            android:layout_gravity="start"
+            android:id="@+id/button"
+            android:onClick="call_police"
+            android:layout_gravity="center"
             />
 
         <Button
+            android:text="@string/amb"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:onClick="call_amb"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:text="@string/choose_embassy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="call_embassy"
-            android:text="@string/call" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/text_embassy"
+            android:layout_gravity="center"/>
 
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.roughike.bottombar.BottomBar
-            android:id="@+id/bottomBar"
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:prompt="@string/embassy_prompt"
+            android:entries="@array/embassy_array"
+            android:layout_gravity="center"
+            />
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            app:bb_tabXmlResource="@xml/bottom_tab_five_emergency" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
-    </RelativeLayout>
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:onClick="see_embassy"
+                android:layout_weight="1"
+                android:text="@string/det"
+                android:layout_gravity="start"
+                />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:onClick="call_embassy"
+                android:text="@string/call" />
+
+        </TableRow>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/gainsboro">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appearBelow"/>
+
+            <com.roughike.bottombar.BottomBar
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                app:bb_tabXmlResource="@xml/bottom_tab_five_emergency" />
+
+        </RelativeLayout>
 
 </LinearLayout>
 

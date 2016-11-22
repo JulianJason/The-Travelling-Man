@@ -135,7 +135,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "Australia":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.aus_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -148,7 +148,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "France":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.fra_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -161,7 +161,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "Germany":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.ger_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -174,7 +174,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "Italy":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.ita_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -187,7 +187,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "Japan":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.jpn_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -200,7 +200,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "South Korea":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.kor_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -213,7 +213,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "United Kingdom":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.uk_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -226,7 +226,7 @@ public class MainActivity_Emergency extends AppCompatActivity {
             case "United States of America":
                 container = (ViewGroup) layoutInflater.inflate(R.layout.us_emb_details, null);
                 popupWindow = new PopupWindow(container, 1000, 600, true);
-                popupWindow.showAtLocation(linearLayout, Gravity.NO_GRAVITY, 0, 900);
+                popupWindow.showAtLocation(linearLayout, Gravity.CENTER, 0, 300);
                 container.setOnTouchListener(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == MotionEvent.ACTION_OUTSIDE) {

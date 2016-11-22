@@ -3,26 +3,21 @@
     <tab
         id="@+id/tab_home"
         icon="@drawable/ic_home_icon"
-        title="Home"
         barColorWhenSelected="@color/colorAccent"/>
     <tab
         id="@+id/tab_information"
         icon="@drawable/ic_information"
-        title="More About Singapore"
         barColorWhenSelected="@color/colorAccent"/>
     <tab
         id="@+id/tab_food"
         icon="@drawable/ic_restaurants"
-        title="Food Nearby"
         barColorWhenSelected="#809FFF"/>
     <tab
         id="@+id/tab_Updates"
         icon="@drawable/ic_today_512"
-        title="Happenings in Singapore"
         barColorWhenSelected="#BF00FF" />
     <tab
         id="@+id/tab_SOS"
         icon="@drawable/ic_sos_256"
-        title="Emergency Contacts"
         barColorWhenSelected="#FF5252" />
 </tabs>
