@@ -12,7 +12,6 @@ class OptimalSolver {
 
     SolutionClass initiate(Attraction attraction, double budget, List<String> destinations, boolean exhaustive) {
         DESTINATIONS = destinations;
-//        Log.d("ASYN", DESTINATIONS.toString());
         INITIAL_LOCATION = attraction.name;
         SolutionClass solution = new SolutionClass();
         solution.time = 999999999;
@@ -20,7 +19,6 @@ class OptimalSolver {
         double time = solve(attraction, budget, 0, "BEGIN", destinations.size(), solution, exhaustive);
         solution.time = time;
         solution.cost = budget - (Math.ceil(solution.cost*100))/100;
-//        Log.d("ROUTE", "solution route =" + solution.route);
         return solution;
     }
 

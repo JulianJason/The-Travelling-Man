@@ -48,7 +48,7 @@ public class getOptimizedSolution {
 
         Attraction start = attractions[matchString(initialLocation, map)];
         OptimalSolver optimalSolver = new OptimalSolver();
-        setupReducedHashMap(size);
+        setupReducedMap(size);
         SolutionClass solution = optimalSolver.initiate(start, budget, destinationStatic, true);
         breakdownSolution = findBreakDownSolution(solution);
         this.solution = solution;
@@ -63,9 +63,9 @@ public class getOptimizedSolution {
            attractions[currentKey] = new Attraction(key);
         }
     }
-    void setupReducedHashMap(int size) {
+    void setupReducedMap(int size) {
         for (MethodOfTransport t : transportations) {
-            int transportCode = -1; // should never happen
+            int transportCode = -1;
             switch (t) {
                 case FOOT:
                     transportCode = 0;
@@ -77,23 +77,27 @@ public class getOptimizedSolution {
                     transportCode = 2;
                     break;
             }
+            // for each destination
             for (String target : destinationStatic) {
-                int currentKey = matchString(target, map);
+                int currentKey = matchString(target, map); // get the key from hashmap
+                // then for every edge
                 for (int edge = 0; edge < size; edge++) {
                     double cost;
-//                            System.out.println("accessing array [" + transportCode + "] [" + currentKey + "] [" + edge + "]");
-                    if (transportCode != 0) {
-                        cost = DestinationMatrix_HASH.costArray[transportCode][currentKey][edge];
-                    } else {
+                    // if walking by foot, set cost to 0, else get trnansport cost from array
+                    if (transportCode == 0) {
                         cost = 0.0;
+                    } else {
+                        cost = DestinationMatrix_HASH.costArray[transportCode][currentKey][edge];
                     }
+                    // get time
                     double time = DestinationMatrix_HASH.timeArray[transportCode][currentKey][edge];
-//                            System.out.println(" + " + attractions[edge] + " time = "  + time + " cost = + " + cost + " " + t + "");
+                    // get the attraction node and add the weighted edge to the new attraction
                     attractions[currentKey].addEdge(attractions[edge], time, cost, t);
                 }
             }
         }
     }
+
     private int matchString(String input, HashMap<String, Integer> map) {
         int entry = map.get(input);
         if (entry < 0) {

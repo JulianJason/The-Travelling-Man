@@ -141,6 +141,8 @@ public class ItineraryActivity extends AppCompatActivity {
         });
     }
 
+
+
     private class RouteAsyncHelper extends AsyncTask<Void, Void, List<ItineraryRow>> {
         private Context mContext;
         private View rootView;
