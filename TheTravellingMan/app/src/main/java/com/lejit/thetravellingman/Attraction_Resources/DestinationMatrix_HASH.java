@@ -15,11 +15,11 @@ public class DestinationMatrix_HASH {
         destination_matrix.put("Singapore Flyer",1);
         destination_matrix.put("VivoCity",2);
         destination_matrix.put("Resorts World Sentosa",3);
-        destination_matrix.put("Buddha Tooth Relic Temple",4);
+        destination_matrix.put("Buddha Tooth Temple",4);
         destination_matrix.put("The Singapore Zoo",5);
     }
     public static final String[] DESTINATIONS = new String[] {
-            "Marina Bay Sands", "Singapore Flyer", "VivoCity", "Resorts World Sentosa", "Buddha Tooth Relic Temple", "The Singapore Zoo"
+            "Marina Bay Sands", "Singapore Flyer", "VivoCity", "Resorts World Sentosa", "Buddha Tooth Temple", "The Singapore Zoo"
     };
     final static int TotNum=destination_matrix.size();
     public static final double [][][] costArray=new double [3][TotNum][TotNum];
