@@ -83,4 +83,6 @@
     <string name="call">拨号</string>
     <string name="aboutSGHeader">新加坡资料</string>
     <string name="aboutSGtapToLearn">点击标签来看更多</string>
+    <string name="ImportantContacts">紧急联系</string>
+    <string name="appearBelow">大使馆详细信息会在下面出现</string>
 </resources>

@@ -26,7 +26,7 @@
         <activity
             android:name=".ItineraryActivity"
             android:label="@string/title_activity_itinerary"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".NewsUpdateActivity"
             android:configChanges="locale"

@@ -110,26 +110,26 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top|center"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/ic_speech_bubble9"
-        android:layout_above="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="17dp">
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:gravity="top|center"-->
+        <!--android:layout_marginBottom="40dp"-->
+        <!--android:background="@drawable/ic_speech_bubble9"-->
+        <!--android:layout_above="@+id/textView2"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="17dp">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_message"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:textSize="7pt"
-            android:id="@+id/welcomeMessage"/>
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="@string/welcome_message"&ndash;&gt;-->
+            <!--&lt;!&ndash;style="@style/Base.TextAppearance.AppCompat.Body1"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textSize="7pt"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/welcomeMessage"/>&ndash;&gt;-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <!--<RelativeLayout-->
         <!--android:orientation="horizontal"-->

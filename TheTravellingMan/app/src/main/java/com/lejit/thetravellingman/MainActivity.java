@@ -21,7 +21,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -157,7 +156,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         mSectionView = (TextView) findViewById(R.id.section_label);
-        mWelcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//        mWelcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
     }
 
@@ -200,10 +199,10 @@ public class MainActivity extends AppCompatActivity
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
         interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
-        welcomeMessage.setText(getString(R.string.welcome_message));
+//        welcomeMessage.setText(getString(R.string.welcome_message));
 
     }
 
@@ -214,10 +213,10 @@ public class MainActivity extends AppCompatActivity
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
         interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
-        welcomeMessage.setText(getString(R.string.welcome_message));
+//        welcomeMessage.setText(getString(R.string.welcome_message));
     }
 
 
@@ -247,10 +246,10 @@ public class MainActivity extends AppCompatActivity
         Resources resources = getResources();
 
         TextView interactiveGuide = (TextView) findViewById(R.id.textView2);
-        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
+//        TextView welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
 
         interactiveGuide.setText(getResources().getString(R.string.InteractiveGuide));
-        welcomeMessage.setText(getString(R.string.welcome_message));
+//        welcomeMessage.setText(getString(R.string.welcome_message));
     }
 
     /**

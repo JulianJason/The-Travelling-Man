@@ -7,10 +7,6 @@
     <tab
         id="@+id/tab_information"
         icon="@drawable/ic_information"
-        barColorWhenSelected="@color/colorAccent"/>
-    <tab
-        id="@+id/tab_food"
-        icon="@drawable/ic_restaurants"
         barColorWhenSelected="#809FFF"/>
     <tab
         id="@+id/tab_Updates"
