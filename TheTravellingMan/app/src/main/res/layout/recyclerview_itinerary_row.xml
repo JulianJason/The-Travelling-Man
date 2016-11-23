@@ -14,7 +14,7 @@
             android:layout_height="40dp"
             app:srcCompat="@drawable/time_icon"
             android:id="@+id/timeIcon"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/fromResult"
             android:layout_alignParentStart="true"
             android:layout_marginStart="12dp" />
@@ -35,10 +35,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/methodOfTransportText"
-            android:layout_alignBottom="@+id/costValue"
-
-            android:layout_toEndOf="@+id/costValue"
-            android:layout_marginStart="36dp"
+            android:layout_alignTop="@+id/costValue"
+            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/location"
+            android:layout_below="@+id/location"
 
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -47,6 +47,7 @@
             android:layout_height="40dp"
             app:srcCompat="@drawable/dollar_icon"
             android:id="@+id/costIcon"
+
             android:layout_alignTop="@+id/timeIcon"
             android:layout_toEndOf="@+id/timeValue"
             android:layout_marginStart="12dp" />
@@ -59,6 +60,7 @@
             android:id="@+id/fromResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
+            android:layout_marginBottom="15dp"
             android:layout_alignTop="@+id/toResult"
             android:layout_alignStart="@+id/timeIcon" />
 
@@ -69,6 +71,7 @@
             android:id="@+id/costValue"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="11dp"
             android:layout_alignBaseline="@+id/timeValue"
             android:layout_alignBottom="@+id/timeValue"
@@ -81,9 +84,9 @@
             android:id="@+id/toResult"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_marginTop="29dp"
-            android:layout_marginBottom="11dp"
-            android:layout_alignParentTop="true"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="15dp"
+
             android:layout_alignStart="@+id/costValue" />
 
         <ImageView
@@ -92,8 +95,6 @@
             android:layout_marginStart="300dp"
             app:srcCompat="@drawable/location"
             android:layout_alignTop="@+id/toResult"
-
-            android:id="@+id/imageView"
-            android:onClick="map"/>
+            android:id="@+id/location" />
     </RelativeLayout>
 </LinearLayout>

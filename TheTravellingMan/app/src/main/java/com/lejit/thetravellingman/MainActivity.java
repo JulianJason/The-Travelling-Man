@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,8 +34,10 @@ import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -45,11 +48,10 @@ public class MainActivity extends AppCompatActivity
 
     public static String language = "English";
 
-    List<Address> matchedList;
     List<Integer> buttonList = Arrays.asList(R.id.clear1,R.id.first,R.id.map1,R.id.clear2,R.id.second,R.id.map2);
     List<Integer> webviewList = Arrays.asList(R.id.name1,R.id.r1,R.id.name2,R.id.r2,R.id.name3,R.id.r3,R.id.name4,R.id.r4,R.id.name5,R.id.r5,R.id.name6,R.id.r6);
     HashMap<Integer,String> hash = new HashMap<>();
-    EditText LocationString;
+
     RelativeLayout rel;
     String attr;
     EditText text;
@@ -359,41 +361,6 @@ public class MainActivity extends AppCompatActivity
             return null;
         }
     }
-    //map function
-    public void map(View v) {
-        for(int i=0;i<buttonList.size();i++){
-            if(buttonList.get(i)==v.getId()){
-                LocationString = (EditText)findViewById(buttonList.get(i-1));
-            }
-
-        }
-
-        Geocoder myGcdr = new Geocoder(this, Locale.getDefault());
-
-        try {
-            matchedList=myGcdr.getFromLocationName(LocationString.getText().toString(),1);
-        }
-        catch(IOException e) {
-            Toast.makeText(this,"Not able to find location: "+e.getMessage(),Toast.LENGTH_LONG).show();
-        }
-        Intent myIntent = new Intent(Intent.ACTION_VIEW);
-        String lat="";
-        String lon="";
-
-        try {
-            lat=String.valueOf(matchedList.get(0).getLatitude());
-            lon=String.valueOf(matchedList.get(0).getLongitude());
-        }
-        catch (Exception e) {
-            Toast.makeText(this, "A problem occurred in retrieving location", Toast.LENGTH_LONG).show();
-        }
-        String query = LocationString.getText().toString();
-        String encoded = Uri.encode(query);
-        myIntent.setData(Uri.parse("geo:"+lat+","+lon+"?q="+encoded));
-        Intent chooser=Intent.createChooser(myIntent,"Launch Maps");
-        startActivity(chooser);
-    }
-
     //popup window -- details of attractions: using webview
     public void popup(View v) {
 

@@ -2,6 +2,7 @@ package com.lejit.thetravellingman;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lejit.thetravellingman.Attraction_Resources.DestinationMatrix_HASH;
@@ -23,9 +25,11 @@ import com.lejit.thetravellingman.Model.ItineraryRow;
 import com.lejit.thetravellingman.OptimalSolver.getOptimizedSolution;
 import com.roughike.bottombar.BottomBar;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import static com.lejit.thetravellingman.WordDistance.getWordCorrectionList;
 

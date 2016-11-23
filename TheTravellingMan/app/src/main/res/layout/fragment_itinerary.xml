@@ -97,7 +97,7 @@
             android:layout_alignBottom="@+id/budgetInput"
             android:layout_toStartOf="@+id/inputButton"
             android:layout_marginEnd="13dp"
-            android:buttonTint="#000"/>
+            app:buttonTint="#000"/>
 
     </RelativeLayout>
 
