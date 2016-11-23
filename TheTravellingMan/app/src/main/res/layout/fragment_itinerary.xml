@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.lejit.thetravellingman.ItenaryPlanner">
+
+    <!--android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout-->
+
+    <include layout="@layout/content_itinerary" />
+    <TextView
+        android:text="Where would you like to visit today?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+
+        <MultiAutoCompleteTextView
+            android:layout_height="wrap_content"
+            android:id="@+id/attractionInputTextView"
+            android:layout_width="wrap_content"
+            android:textAlignment="textStart"
+            android:layout_marginTop="11dp"
+            android:hint="Enter attraction"
+            android:textColorHint="#000"
+            android:textCursorDrawable="@null"
+            android:textColor="#000"
+            android:theme="@style/Autocomplete"
+            android:layout_marginLeft="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
+            android:layout_alignEnd="@+id/inputButton" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/budgetInput"
+            android:hint="Enter budget"
+            android:textColorHint="#000"
+            android:textCursorDrawable="@null"
+            android:theme="@style/Autocomplete"
+            android:layout_alignBottom="@+id/inputButton"
+            android:layout_alignStart="@+id/attractionInputTextView"
+            tools:text="100"
+            android:layout_toStartOf="@+id/exhaustiveCheckBox"
+            android:layout_width="match_parent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/itineraryRecyclerView"
+            android:layout_below="@+id/inputButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="60dp" />
+
+        <Button
+            android:text="Calculate!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputButton"
+            android:layout_marginEnd="11dp"
+            android:layout_below="@+id/attractionInputTextView"
+            android:layout_alignParentEnd="true" />
+
+        <CheckBox
+            android:text="exhaustive?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exhaustiveCheckBox"
+            android:layout_alignBaseline="@+id/budgetInput"
+            android:layout_alignBottom="@+id/budgetInput"
+            android:layout_toStartOf="@+id/inputButton"
+            android:layout_marginEnd="13dp"
+            app:buttonTint="#000"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

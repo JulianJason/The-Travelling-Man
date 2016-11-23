@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="InteractiveGuide">你的旅行伙伴</string>
+    <string name="welcome_message">"你好!\n欢迎来到新加坡！"</string>
+    <string name="homePage">主页</string>
+    <string name="itineraryPlanner">行程计划表</string>
+    <string name="AttractionsNearby">附近景点</string>
+    <string name="rss_intro">得到关于新加坡事最新消息</string>
+    <string name="attr">附近景点</string>
+    <string name="mbs">滨海湾金沙</string>
+    <string name="dist1">25.0 km</string>
+    <string name="flyer">新加坡飞行物</string>
+    <string name="dist2">15.0 km</string>
+    <string name="vivo">怡丰城</string>
+    <string name="dist3">35.0 km</string>
+    <string name="rws">圣淘沙名胜世界</string>
+    <string name="buddha">佛牙寺龙华院</string>
+    <string name="zoo">新加坡动物园</string>
+
+    <string name="singlishdictionary">新语字典</string>
+    <string name="culture">文化</string>
+    <string name="legi">新加坡立法</string>
+    <string name="history">历史</string>
+    <string name="publictrans">公共交通</string>
+    <string name="ang">Ang Moh</string>
+    <string name="angmoh">意思: 洋人</string>
+    <string name="blursotong">Blur</string>
+    <string name="blur">意思: 混乱头</string>
+    <string name="Sotong">Sotong</string>
+    <string name="sotongdef">意思: 一个非常不聪明的人</string>
+    <string name="wah">Wah!</string>
+    <string name="wahdef">惊讶的表达</string>
+    <string name="lepak">Lepak</string>
+    <string name="lepakdef">意思: 放松</string>
+    <string name="sabo">Sabo</string>
+    <string name="sabodef">意思: 破坏</string>
+    <string name="musteat">新加坡特食</string>
+    <string name="hdb">HDB</string>
+    <string name="hdbdef">意思: 公寓楼</string>
+    <string name="chin">Chinese Helicopter</string>
+    <string name="chindef"> 意思: 中文教育</string>
+    <string name="dismiss">退出</string>
+    <string name="culturepara">新加坡的宗教文化与人口一样多样化。 新加坡人早期了解其他人口群体的宗教习俗和传统。 新加坡的公众假期名单上有基督教，穆斯林和印度的节日等等。 国家拥有十大宗教，包括佛教，道教，伊斯兰教，印度教和基督教。 有些人甚至接受不止一个信仰。.</string>
+    <string name="cultpara">在探索新加坡的文化时，你会很快发现，许多最美丽和迷人的建筑物在国家是宗教的。 虽然其中一些向公众开放，但在进入宗教场所之前，你必须遵守某些规则。</string>
+    <string name="culpara">参观新加坡的文化珍品，如圣亚历山大教堂的圣格雷戈里的照明，斯里马里亚曼寺，苏丹清真寺，中央消防局和艺术之家今天。</string>
+    <string name="musteatpara">新加坡以其多样化和令人垂涎的美食而闻名。 当你在这里，尝试一些这些必须吃！</string>
+    <string name="chilicrab">辣椒螃蟹</string>
+    <string name="laksa">叻沙</string>
+    <string name="dimsum">点心</string>
+    <string name="carrotcake">胡萝卜蛋糕</string>
+    <string name="chickenrice">鸡饭</string>
+    <string name="stingray">叁峇黄貂鱼</string>
+    <string name="chew">口香糖</string>
+    <string name="chewpara">口香糖在新加坡禁止，所以在包装您的袋子时留在家里。 口香糖进口到国家，即使不是为了交易，是非法的。 目前的一套法规没有规定携带口香糖供个人使用。 不当处理口香糖和携带大量被禁止的产品，对于第一次犯罪者将需要高达1000美元的高额罚款。</string>
+    <string name="homo">同性恋关系</string>
+    <string name="homopara">“关于体面的暴行”的立法将同性关系定为刑事犯罪。 这个法律以前是在“自然的性别”或对自然秩序的性别的保护伞下。“违反这项法律可能使罪犯在监狱里逗留两年。</string>
+    <string name="vandal">故意破坏</string>
+    <string name="vandalpara">破坏行为在新加坡是一种严重的罪行，罚款不仅包括罚款，而且包括监禁，以及三至八次的鞭子。 该行为构成对公共和私人财产的损害。 在没有所有者同意的情况下破坏，破坏和窃取公共财产，以及绘制，绘画，书写，刻印和标记任何私有财产被视为非法。 也禁止贴上标语牌，海报，横幅和旗帜。</string>
+    <string name="drug">非法毒品</string>
+    <string name="drugpara">重要的是要注意，新加坡当局不区分在您进入该国之前回国的药物和在其国境内服用的药物。 新加坡警察被授权对当地人和访问外国人进行随机药物测试。 确保你在进入国家之前没有任何物质，或更好，从不消费！</string>
+    <string name="histfound">新加坡的起源</string>
+    <string name="histparasec">新加坡的现代化</string>
+    <string name="histpara">现代新加坡由斯坦福德莱佛士爵士在1819年创立。在此之前，新加坡被称为淡马锡，这意味着“海城”。 岛上充满了沼泽和一小群人口。 然而，莱佛士认为新加坡位于马来半岛的战略位置。 他相信新加坡将成为英国东印度公司的良好港口。 </string>
+    <string name="histpapa">英国人于1942年2月15日将新加坡交还日本人。在接下来的3年里，新加坡受日本统治，更名为“云南”。 日本占领后，为新加坡独立的斗争变得更加明显。 许多人为独立斗争，如大卫·马歇尔和李光耀。 新加坡在1963年9月17日获得独立，条件是它加入马来亚联邦。 新加坡很快就离开了联邦，并于1965年8月9日获得独立。  </string>
+
+    <string-array name="embassy_array">
+        <item>大使馆</item>
+        <item>Australia</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>South Korea</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
+    </string-array>
+    
+    <string name="country_code">新加坡的国家代码是+65。</string>
+    <string name="choose_embassy">请选择大使馆：</string>
+    <string name="amb">救护车/消防队：995</string>
+    <string name="pol">警察：999</string>
+    <string name="det">细节</string>
+    <string name="call">拨号</string>
+    <string name="aboutSGHeader">新加坡资料</string>
+    <string name="aboutSGtapToLearn">点击标签来看更多</string>
+    <string name="ImportantContacts">紧急联系</string>
+    <string name="appearBelow">大使馆详细信息会在下面出现</string>
+</resources>

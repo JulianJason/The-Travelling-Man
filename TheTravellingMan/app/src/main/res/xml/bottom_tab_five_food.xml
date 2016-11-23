@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/ic_home_icon"
+        barColorWhenSelected="#809FFF"/>
+    <tab
+        id="@+id/tab_information"
+        icon="@drawable/ic_information"
+        barColorWhenSelected="@color/colorAccent"/>
+    <tab
+        id="@+id/tab_food"
+        icon="@drawable/ic_restaurants"
+        barColorWhenSelected="#809FFF"/>
+    <tab
+        id="@+id/tab_Updates"
+        icon="@drawable/ic_today_512"
+        barColorWhenSelected="#BF00FF" />
+    <tab
+        id="@+id/tab_SOS"
+        icon="@drawable/ic_sos_256"
+        barColorWhenSelected="#FF5252" />
+</tabs>

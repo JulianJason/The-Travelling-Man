@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="141dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/time_icon"
+            android:id="@+id/timeIcon"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/fromResult"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeValue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginBottom="11dp"
+            android:layout_alignBottom="@+id/timeIcon"
+            android:layout_toEndOf="@+id/timeIcon"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/methodOfTransportText"
+            android:layout_alignTop="@+id/costValue"
+            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/location"
+            android:layout_below="@+id/location"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/dollar_icon"
+            android:id="@+id/costIcon"
+
+            android:layout_alignTop="@+id/timeIcon"
+            android:layout_toEndOf="@+id/timeValue"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:id="@+id/fromResult"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignTop="@+id/toResult"
+            android:layout_alignStart="@+id/timeIcon" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/costValue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="11dp"
+            android:layout_alignBaseline="@+id/timeValue"
+            android:layout_alignBottom="@+id/timeValue"
+            android:layout_toEndOf="@+id/costIcon" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/toResult"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="15dp"
+
+            android:layout_alignStart="@+id/costValue" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="300dp"
+            app:srcCompat="@drawable/location"
+            android:layout_alignTop="@+id/toResult"
+            android:id="@+id/location" />
+    </RelativeLayout>
+</LinearLayout>

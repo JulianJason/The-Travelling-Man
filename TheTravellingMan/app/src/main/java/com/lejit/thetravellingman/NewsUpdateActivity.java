@@ -1,18 +1,22 @@
 package com.lejit.thetravellingman;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.lejit.thetravellingman.Model.RssData;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabReselectListener;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -33,29 +37,79 @@ import java.util.List;
 public class NewsUpdateActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
-//    private TextView mRssFeed;
-    private RecyclerAdapter mAdapter;
+    private NewsRecyclerAdapter mAdapter;
     private List<RssData> parentRssFeed;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mRecyclerView != null) {
+            mRecyclerView.setLayoutManager(null);
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_update);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         GetRSS rssGetter = new GetRSS(getApplicationContext(), viewGroup);
         // setup recycler view
         parentRssFeed = new ArrayList<RssData>();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mAdapter = new RecyclerAdapter(parentRssFeed);
+        mAdapter = new NewsRecyclerAdapter(parentRssFeed);
         mRecyclerView.setAdapter(mAdapter);
-//        Log.d("ASYN", "ADAPTER SET");
         rssGetter.execute();
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+
+                }
+            }
+        });
+
+        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
+            @Override
+            public void onTabReSelected(@IdRes int tabId) {
+                if (tabId == R.id.tab_information) {
+                    Intent intent = new Intent(getApplicationContext(),AboutSG.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_food){
+                    Intent intent = new Intent(getApplicationContext(),NewsUpdateActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_home){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_SOS){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity_Emergency.class);
+                    startActivity(intent);
+                }else if(tabId == R.id.tab_Updates){
+                    Toast.makeText(getApplicationContext(),"Already at Updates Page!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private class GetRSS extends AsyncTask<Void, Void, List<RssData>> {
@@ -69,7 +123,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
         @Override
         protected List<RssData> doInBackground(Void... voids) {
             List<RssData> result = null;
-//            Log.d("ASYN", "DOING BACKGROUND SET");
             try {
                 String feed = getRssFeed();
                 result = parse(feed);
@@ -78,7 +131,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-//            Log.d("ASYN", "ReSUlT IS =" + result);
             return result;
         }
         private List<RssData> parse(String rssFeed) throws XmlPullParserException, IOException {
@@ -99,7 +151,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 URL url = new URL("http://www.straitstimes.com/news/singapore/rss.xml");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 in = conn.getInputStream();
-//                Log.d("ASYN", "OPENING CONNECTION" + in);
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
 
@@ -114,7 +165,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             } finally {
                 if (in != null) {
                     try {
-//                        Log.i("ASYN", "CLOSING CONNECTION" + in);
                         in.close();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -169,7 +219,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                     continue;
                 }
                 String name = parser.getName();
-                Log.d("ASYN", "parset getName = " + name);
                 if (name.equals("title")) {
                     rssItem.setTitle(readTitle(parser));
                 } else if (name.equals("link")) {
@@ -181,7 +230,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 }
             }
 
-//            Log.d("ASYN,", "readItem result = " + rssItem);
             return rssItem;
         }
 
@@ -191,7 +239,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.START_TAG, null, "title");
             String title = readText(parser);
             parser.require(XmlPullParser.END_TAG, null, "title");
-//            Log.d("ASYN,", "readTitle result = " + title);
             return title;
         }
 
@@ -200,7 +247,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.START_TAG, null, "link");
             String link = readText(parser);
             parser.require(XmlPullParser.END_TAG, null, "link");
-//            Log.d("ASYN,", "readLink result = " + link);
             return link;
         }
 
@@ -211,7 +257,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
             parser.require(XmlPullParser.END_TAG, null, "description");
             description = Html.fromHtml(description).toString();
             description = ellipsis(description, 300);
-//            Log.d("ASYN,", "readDescription result = " + description);
             return description;
         }
 
@@ -223,8 +268,6 @@ public class NewsUpdateActivity extends AppCompatActivity {
                 result = parser.getText();
                 parser.nextTag();
             }
-
-//            Log.d("ASYN,", "readText result = " + result);
             return result;
         }
         private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -245,11 +288,15 @@ public class NewsUpdateActivity extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute(List<RssData> rssFeed) {
-            if (rssFeed != null) {
-                parentRssFeed.clear();
+            parentRssFeed.clear();
+            if (rssFeed.isEmpty()) {
+                RssData emptyFeed = new RssData("RSS is empty, check again later", "Click to go to rss page", "http://www.straitstimes.com/rss-feeds");
+                parentRssFeed.add(emptyFeed);
+            } else {
                 parentRssFeed.addAll(0, rssFeed);
-                mAdapter.notifyDataSetChanged();
             }
+
+            mAdapter.notifyDataSetChanged();
         }
     }
     public static String ellipsis(final String text, int length)
